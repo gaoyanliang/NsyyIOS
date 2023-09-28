@@ -7,6 +7,8 @@
 
 import UIKit
 import WebKit
+import CoreLocation
+import Vapor
 
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
 class NsyyViewController: UIViewController {
@@ -14,10 +16,23 @@ class NsyyViewController: UIViewController {
     private let urlString: String = "http://oa.nsyy.com.cn:6060"
     var webView: WKWebView!
 
+    var nsyyLocation: NsyyLocation = NsyyLocation()
+    var bluetoothUtil: BluetoothUtil = BluetoothUtil()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // 加载南石医院 OA 系统
+        loadNsyyView()
         
+        // 开启位置服务，并自动更新当前位置
+        nsyyLocation.setUpLocation()
+        
+        // 开启蓝牙
+        bluetoothUtil.openBluetoothAdapter(controller: self)
+    }
+    
+    // 加载南石医院 oa 页面
+    func loadNsyyView() {
         // Initialize WKWebView
         webView = WKWebView(frame: view.frame)
         
@@ -35,6 +50,7 @@ class NsyyViewController: UIViewController {
             webView.load(request)
         }
     }
+    
 }
 
 
@@ -43,7 +59,6 @@ extension NsyyViewController: WKNavigationDelegate {
     
     // 页面开始加载时调用（开始请求服务器，并加载页面）
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!){
-
         print("=====> nsyy view didStart...... \(String(describing: webView.url))")
     }
 
@@ -57,6 +72,7 @@ extension NsyyViewController: WKNavigationDelegate {
         // This method is called when the web view finishes loading a page.
         // You can perform actions after the page is fully loaded.
         print("=====> nsyy view didFinish. Page loaded successfully.")
+
     }
 
     // 页面加载失败时调用

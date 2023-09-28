@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */; };
 		1337D8912ABD945000A8F46D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8902ABD945000A8F46D /* AppDelegate.swift */; };
 		1337D8932ABD945000A8F46D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8922ABD945000A8F46D /* SceneDelegate.swift */; };
 		1337D8952ABD945000A8F46D /* NsyyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8942ABD945000A8F46D /* NsyyViewController.swift */; };
@@ -16,6 +17,14 @@
 		1337D8A82ABD945100A8F46D /* NsyyIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8A72ABD945100A8F46D /* NsyyIOSTests.swift */; };
 		1337D8B22ABD945100A8F46D /* NsyyIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8B12ABD945100A8F46D /* NsyyIOSUITests.swift */; };
 		1337D8B42ABD945100A8F46D /* NsyyIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8B32ABD945100A8F46D /* NsyyIOSUITestsLaunchTests.swift */; };
+		134828AC2AC2C4C20057C11D /* Vapor in Frameworks */ = {isa = PBXBuildFile; productRef = 134828AB2AC2C4C20057C11D /* Vapor */; };
+		134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B22AC2C63D0057C11D /* NsyyWebServer.swift */; };
+		134828B52AC2CEC90057C11D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B42AC2CEC90057C11D /* Notification.swift */; };
+		134828B72AC2D5950057C11D /* ReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B62AC2D5950057C11D /* ReturnData.swift */; };
+		134828BA2AC4055E0057C11D /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B92AC4055E0057C11D /* DeviceInfo.swift */; };
+		134828BC2AC406550057C11D /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828BB2AC406550057C11D /* BluetoothManager.swift */; };
+		134828BE2AC409F50057C11D /* BluetoothUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828BD2AC409F50057C11D /* BluetoothUtil.swift */; };
+		134828C12AC50EBE0057C11D /* NsyyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828C02AC50EBE0057C11D /* NsyyLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyNotification.swift; sourceTree = "<group>"; };
 		1337D88D2ABD945000A8F46D /* NsyyIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NsyyIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1337D8902ABD945000A8F46D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1337D8922ABD945000A8F46D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +59,13 @@
 		1337D8AD2ABD945100A8F46D /* NsyyIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NsyyIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1337D8B12ABD945100A8F46D /* NsyyIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyIOSUITests.swift; sourceTree = "<group>"; };
 		1337D8B32ABD945100A8F46D /* NsyyIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		134828B22AC2C63D0057C11D /* NsyyWebServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyWebServer.swift; sourceTree = "<group>"; };
+		134828B42AC2CEC90057C11D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		134828B62AC2D5950057C11D /* ReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnData.swift; sourceTree = "<group>"; };
+		134828B92AC4055E0057C11D /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		134828BB2AC406550057C11D /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		134828BD2AC409F50057C11D /* BluetoothUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothUtil.swift; sourceTree = "<group>"; };
+		134828C02AC50EBE0057C11D /* NsyyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134828AC2AC2C4C20057C11D /* Vapor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		132C256C2AC15BAC00A1A35D /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */,
+				134828B42AC2CEC90057C11D /* Notification.swift */,
+			);
+			path = notification;
+			sourceTree = "<group>";
+		};
 		1337D8842ABD945000A8F46D = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +126,10 @@
 		1337D88F2ABD945000A8F46D /* NsyyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				134828BF2AC50E920057C11D /* location */,
+				134828B82AC405420057C11D /* bluetooth */,
+				134828AF2AC2C5780057C11D /* vapor */,
+				132C256C2AC15BAC00A1A35D /* notification */,
 				1337D8902ABD945000A8F46D /* AppDelegate.swift */,
 				1337D8922ABD945000A8F46D /* SceneDelegate.swift */,
 				1337D8942ABD945000A8F46D /* NsyyViewController.swift */,
@@ -127,6 +158,33 @@
 			path = NsyyIOSUITests;
 			sourceTree = "<group>";
 		};
+		134828AF2AC2C5780057C11D /* vapor */ = {
+			isa = PBXGroup;
+			children = (
+				134828B22AC2C63D0057C11D /* NsyyWebServer.swift */,
+				134828B62AC2D5950057C11D /* ReturnData.swift */,
+			);
+			path = vapor;
+			sourceTree = "<group>";
+		};
+		134828B82AC405420057C11D /* bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				134828B92AC4055E0057C11D /* DeviceInfo.swift */,
+				134828BB2AC406550057C11D /* BluetoothManager.swift */,
+				134828BD2AC409F50057C11D /* BluetoothUtil.swift */,
+			);
+			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		134828BF2AC50E920057C11D /* location */ = {
+			isa = PBXGroup;
+			children = (
+				134828C02AC50EBE0057C11D /* NsyyLocation.swift */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +201,9 @@
 			dependencies = (
 			);
 			name = NsyyIOS;
+			packageProductDependencies = (
+				134828AB2AC2C4C20057C11D /* Vapor */,
+			);
 			productName = NsyyIOS;
 			productReference = 1337D88D2ABD945000A8F46D /* NsyyIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +276,9 @@
 				Base,
 			);
 			mainGroup = 1337D8842ABD945000A8F46D;
+			packageReferences = (
+				134828AA2AC2C4C20057C11D /* XCRemoteSwiftPackageReference "vapor" */,
+			);
 			productRefGroup = 1337D88E2ABD945000A8F46D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +324,15 @@
 			files = (
 				1337D8952ABD945000A8F46D /* NsyyViewController.swift in Sources */,
 				1337D8912ABD945000A8F46D /* AppDelegate.swift in Sources */,
+				132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */,
+				134828B72AC2D5950057C11D /* ReturnData.swift in Sources */,
+				134828BC2AC406550057C11D /* BluetoothManager.swift in Sources */,
+				134828C12AC50EBE0057C11D /* NsyyLocation.swift in Sources */,
+				134828BA2AC4055E0057C11D /* DeviceInfo.swift in Sources */,
+				134828BE2AC409F50057C11D /* BluetoothUtil.swift in Sources */,
+				134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */,
 				1337D8932ABD945000A8F46D /* SceneDelegate.swift in Sources */,
+				134828B52AC2CEC90057C11D /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,8 +514,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用程序需要使用蓝牙";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用程序需要使用蓝牙";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "本应用将会一直获取位置信息";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "本应用将会一直获取位置信息";
+				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "获取位置信息";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -470,8 +549,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用程序需要使用蓝牙";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用程序需要使用蓝牙";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "本应用将会一直获取位置信息";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "本应用将会一直获取位置信息";
+				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "获取位置信息";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -603,6 +689,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		134828AA2AC2C4C20057C11D /* XCRemoteSwiftPackageReference "vapor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/vapor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.83.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		134828AB2AC2C4C20057C11D /* Vapor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 134828AA2AC2C4C20057C11D /* XCRemoteSwiftPackageReference "vapor" */;
+			productName = Vapor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1337D8852ABD945000A8F46D /* Project object */;
 }
