@@ -9,21 +9,39 @@ import Foundation
 import UserNotifications
 import Vapor
 
-class NsyyNotification {
+class NsyyNotification: NSObject {
     
     // 请求通知权限
-    static func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+    func requestNotificationPermission() {
+        
+        let center = UNUserNotificationCenter.current()
+        
+        center.delegate = self
+        
+        // ask for permission to push notification
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
-                            print("Oops, we've met an error: \(error)")
+                print("\(#function) Error: \(error)")
             }
             
             if granted {
-                print("===> Notification authorization granted")
+                print("\(#function) 消息通知权限已开启😃")
             } else {
-                print("===> Notification authorization denied")
+                print("\(#function) 为获取消息通知权限😣")
             }
         }
+        
+        // set notification actions
+        let remindLaterAction = UNNotificationAction(identifier: "REMIND_LATER", title: "Remind Me Later", options: UNNotificationActionOptions(rawValue: 0))
+        let cancelAction = UNNotificationAction(identifier: "CANCEL", title: "Cancel", options: UNNotificationActionOptions(rawValue: 0))
+        
+        // set category to all notifications
+        let category = UNNotificationCategory(
+            identifier: "MY_CATEGORY",
+            actions: [remindLaterAction, cancelAction],
+            intentIdentifiers: [],
+            options: .customDismissAction)
+        center.setNotificationCategories([category])
     }
     
     func routes_notification(_ app: Application) throws {
@@ -57,11 +75,43 @@ class NsyyNotification {
         // add our notification request
         UNUserNotificationCenter.current().add(request) { (error) in
             if let error = error {
-                print("===> 消息通知失败: \(error)")
+                print("\(#function) 消息通知失败: \(error)")
             } else {
-                print("===> 消息通知成功: title： \(title), context: \(context)")
+                print("\(#function) 消息通知成功: title： \(title), context: \(context)")
             }
         }
     }
     
+}
+
+
+// delegate methods
+extension NsyyNotification: UNUserNotificationCenterDelegate {
+    
+    public func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "REMIND_LATER":
+            let notiContent = response.notification.request.content
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "FIVE_SECONDS", content: notiContent, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { _ in
+                print("Remind later")
+            }
+        default:
+            break
+        }
+        completionHandler()
+    }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // New in iOS 10, we can show notifications when app is in foreground, by calling completion handler with our desired presentation type.
+        
+        completionHandler(.alert)
+    }
 }

@@ -14,6 +14,7 @@ class NsyyWebServer: ObservableObject {
     
     var nsyyLocation: NsyyLocation
     var nsyyNotification: NsyyNotification
+    var bluetooth: NsyyBluetooth
   
     init(port: Int) {
         self.port = port
@@ -25,6 +26,8 @@ class NsyyWebServer: ObservableObject {
         
         nsyyLocation = NsyyLocation()
         nsyyNotification = NsyyNotification()
+        bluetooth = NsyyBluetooth()
+        
     }
     
     func start() {
@@ -33,6 +36,7 @@ class NsyyWebServer: ObservableObject {
               try routes(app)
               try nsyyNotification.routes_notification(app)
               try nsyyLocation.routes_location(app)
+              try bluetooth.routes_bluetooth(app)
               try app.start()
           } catch {
               fatalError(error.localizedDescription)

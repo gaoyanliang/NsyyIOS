@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */; };
+		1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */; };
+		1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */; };
 		1337D8912ABD945000A8F46D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8902ABD945000A8F46D /* AppDelegate.swift */; };
 		1337D8932ABD945000A8F46D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8922ABD945000A8F46D /* SceneDelegate.swift */; };
 		1337D8952ABD945000A8F46D /* NsyyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1337D8942ABD945000A8F46D /* NsyyViewController.swift */; };
@@ -21,9 +23,6 @@
 		134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B22AC2C63D0057C11D /* NsyyWebServer.swift */; };
 		134828B52AC2CEC90057C11D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B42AC2CEC90057C11D /* Notification.swift */; };
 		134828B72AC2D5950057C11D /* ReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B62AC2D5950057C11D /* ReturnData.swift */; };
-		134828BA2AC4055E0057C11D /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B92AC4055E0057C11D /* DeviceInfo.swift */; };
-		134828BC2AC406550057C11D /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828BB2AC406550057C11D /* BluetoothManager.swift */; };
-		134828BE2AC409F50057C11D /* BluetoothUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828BD2AC409F50057C11D /* BluetoothUtil.swift */; };
 		134828C12AC50EBE0057C11D /* NsyyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828C02AC50EBE0057C11D /* NsyyLocation.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyNotification.swift; sourceTree = "<group>"; };
+		1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyBluetooth.swift; sourceTree = "<group>"; };
+		1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReturnData.swift; sourceTree = "<group>"; };
 		1337D88D2ABD945000A8F46D /* NsyyIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NsyyIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1337D8902ABD945000A8F46D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1337D8922ABD945000A8F46D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,9 +63,6 @@
 		134828B22AC2C63D0057C11D /* NsyyWebServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyWebServer.swift; sourceTree = "<group>"; };
 		134828B42AC2CEC90057C11D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		134828B62AC2D5950057C11D /* ReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnData.swift; sourceTree = "<group>"; };
-		134828B92AC4055E0057C11D /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
-		134828BB2AC406550057C11D /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
-		134828BD2AC409F50057C11D /* BluetoothUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothUtil.swift; sourceTree = "<group>"; };
 		134828C02AC50EBE0057C11D /* NsyyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,9 +168,8 @@
 		134828B82AC405420057C11D /* bluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				134828B92AC4055E0057C11D /* DeviceInfo.swift */,
-				134828BB2AC406550057C11D /* BluetoothManager.swift */,
-				134828BD2AC409F50057C11D /* BluetoothUtil.swift */,
+				1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */,
+				1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */,
 			);
 			path = bluetooth;
 			sourceTree = "<group>";
@@ -326,12 +323,11 @@
 				1337D8912ABD945000A8F46D /* AppDelegate.swift in Sources */,
 				132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */,
 				134828B72AC2D5950057C11D /* ReturnData.swift in Sources */,
-				134828BC2AC406550057C11D /* BluetoothManager.swift in Sources */,
 				134828C12AC50EBE0057C11D /* NsyyLocation.swift in Sources */,
-				134828BA2AC4055E0057C11D /* DeviceInfo.swift in Sources */,
-				134828BE2AC409F50057C11D /* BluetoothUtil.swift in Sources */,
+				1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */,
 				134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */,
 				1337D8932ABD945000A8F46D /* SceneDelegate.swift in Sources */,
+				1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */,
 				134828B52AC2CEC90057C11D /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -497,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -17,7 +17,8 @@ class NsyyViewController: UIViewController {
     var webView: WKWebView!
 
     var nsyyLocation: NsyyLocation = NsyyLocation()
-    var bluetoothUtil: BluetoothUtil = BluetoothUtil()
+    var notification: NsyyNotification = NsyyNotification()
+    var bluetooth: NsyyBluetooth = NsyyBluetooth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,10 @@ class NsyyViewController: UIViewController {
         nsyyLocation.setUpLocation()
         
         // 开启蓝牙
-        bluetoothUtil.openBluetoothAdapter(controller: self)
+        bluetooth.setUpBluetooth(controller: self)
+        
+        // 开启消息通知
+        notification.requestNotificationPermission()
     }
     
     // 加载南石医院 oa 页面
@@ -45,10 +49,9 @@ class NsyyViewController: UIViewController {
         view.addSubview(webView)
 
         // Load a URL
-        if let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
+        let url = URL(string: urlString)
+        let request = URLRequest(url: url!)
+        webView.load(request)
     }
     
 }
@@ -59,24 +62,24 @@ extension NsyyViewController: WKNavigationDelegate {
     
     // 页面开始加载时调用（开始请求服务器，并加载页面）
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!){
-        print("=====> nsyy view didStart...... \(String(describing: webView.url))")
+        print("\(#function) 网页开始加载...\(String(describing: webView.url))")
     }
 
     // 当内容开始返回时调用(开始渲染页面时调用，响应的内容到达主页面的时候响应,刚准备开始渲染页面)
     func webView(_ webview: WKWebView, didCommit navigation: WKNavigation!) {
-        print("=====> nsyy view didCommit......")
+        print("\(#function) 开始渲染页面")
     }
 
     // 页面加载完成之后调用
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // This method is called when the web view finishes loading a page.
         // You can perform actions after the page is fully loaded.
-        print("=====> nsyy view didFinish. Page loaded successfully.")
+        print("\(#function) 网页加载成功 🎉")
 
     }
 
     // 页面加载失败时调用
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print("=====> Failed to load: \(error.localizedDescription)")
+        print("\(#function) 网页加载失败: \(error.localizedDescription)")
     }
 }
