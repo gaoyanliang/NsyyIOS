@@ -12,9 +12,8 @@ class NsyyWebServer: ObservableObject {
     var app: Application
     let port: Int
     
-    var nsyyLocation: NsyyLocation
-    var nsyyNotification: NsyyNotification
-    var bluetooth: NsyyBluetooth
+    var nsyyNotification: NsyyNotification = NsyyNotification()
+    var bluetooth: NsyyBluetooth = NsyyBluetooth()
   
     init(port: Int) {
         self.port = port
@@ -24,10 +23,6 @@ class NsyyWebServer: ObservableObject {
         app.http.server.configuration.port = port
         app.routes.defaultMaxBodySize = "500kb"
         
-        nsyyLocation = NsyyLocation()
-        nsyyNotification = NsyyNotification()
-        bluetooth = NsyyBluetooth()
-        
     }
     
     func start() {
@@ -35,7 +30,7 @@ class NsyyWebServer: ObservableObject {
           do {
               try routes(app)
               try nsyyNotification.routes_notification(app)
-              try nsyyLocation.routes_location(app)
+              try SignificantLocationManager.sharedManager.routes_location(app)
               try bluetooth.routes_bluetooth(app)
               try app.start()
           } catch {
@@ -47,11 +42,6 @@ class NsyyWebServer: ObservableObject {
     func routes(_ app: Application) throws {
         app.get("ping") { req async -> ReturnData in
             return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "SERVER OK")
-        }
-        
-        app.get("hello", ":name") { req async throws -> String in
-            let name = try req.parameters.require("name")
-            return "Hello, \(name.capitalized)!"
         }
     }
 

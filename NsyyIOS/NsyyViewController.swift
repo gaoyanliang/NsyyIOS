@@ -12,35 +12,22 @@ import Vapor
 
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
 class NsyyViewController: UIViewController {
-    
+
     private let urlString: String = "http://oa.nsyy.com.cn:6060"
     var webView: WKWebView!
 
-    var nsyyLocation: NsyyLocation = NsyyLocation()
-    var notification: NsyyNotification = NsyyNotification()
     var bluetooth: NsyyBluetooth = NsyyBluetooth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 加载南石医院 OA 系统
         loadNsyyView()
-        
-        // 开启位置服务，并自动更新当前位置
-        nsyyLocation.setUpLocation()
-        
-        // 开启蓝牙
-        bluetooth.setUpBluetooth(controller: self)
-        
-        // 开启消息通知
-        notification.requestNotificationPermission()
     }
     
     // 加载南石医院 oa 页面
     func loadNsyyView() {
         // Initialize WKWebView
         webView = WKWebView(frame: view.frame)
-        
-        // Implement WKNavigationDelegate if needed
         webView.navigationDelegate = self
         
         // 允许左滑右滑，默认值为NO；设置为YES后，即可实现左右滑手势可用。
@@ -53,7 +40,6 @@ class NsyyViewController: UIViewController {
         let request = URLRequest(url: url!)
         webView.load(request)
     }
-    
 }
 
 

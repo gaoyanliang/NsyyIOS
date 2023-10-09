@@ -16,7 +16,6 @@ class NsyyBluetooth: NSObject {
     private let BLE_NOTIFY_UUID = "ffe1"
     
     static var centralManager:CBCentralManager?
-    var controller: UIViewController?
     
     //扫描到的所有设备
     static var bluetoothDeviceArray: [String:CBPeripheral] = [:]
@@ -31,8 +30,7 @@ class NsyyBluetooth: NSObject {
     static var recvData: [String:String] = [:]
     
     // 申请位置权限 & 获取位置
-    func setUpBluetooth(controller: UIViewController) {
-        self.controller = controller
+    func setUpBluetooth() {
         NsyyBluetooth.centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
@@ -42,8 +40,6 @@ class NsyyBluetooth: NSObject {
         // 扫描蓝牙设备, 并返回蓝牙设备列表
         app.get("scanning") {req async -> BluetoothReturnData in
             self.startScan()
-            
-            print("扫描蓝牙设备")
             return BluetoothReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: NsyyBluetooth.bluetoothDeviceList)
         }
         
@@ -86,29 +82,6 @@ class NsyyBluetooth: NSObject {
         }
         
     }
-    
-
-    // 弹框提示
-    private func showAlert(controller: UIViewController, title: String, content: String, cb: @escaping () -> Void) {
-        let alertController = UIAlertController(title: title, message: content, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "确定", style: .default, handler: {
-            _ in
-            cb()
-        })
-        alertController.addAction(okAction)
-        controller.present(alertController, animated: true, completion: nil)
-    }
-    
-    // 进入蓝牙设置页面
-    private func gotoSetting(){
-        guard let url = URL(string: UIApplication.openSettingsURLString)  else {
-            return
-        }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-
 
     
     //MARK: - Private Method
@@ -173,18 +146,12 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
                 startScan()
             } else {
                 if central.state == CBManagerState.poweredOff {
-                    self.showAlert(controller: controller!, title: "提示", content: "请打开系统蓝牙开关") {}
                     print("\(#function) 请打开系统蓝牙开关")
                 } else if central.state == CBManagerState.unauthorized {
-                    self.showAlert(controller: controller!, title: "提示", content: "请打开应用的蓝牙权限") {
-                        self.gotoSetting()
-                    }
                     print("\(#function) 请打开应用的蓝牙权限")
                 } else if central.state == CBManagerState.unknown {
-                    self.showAlert(controller: controller!, title: "提示", content: "蓝牙适配器错误") {}
                     print("\(#function) BLE unknown")
                 } else if central.state == CBManagerState.resetting {
-                    self.showAlert(controller: controller!, title: "提示", content: "蓝牙适配器错误") {}
                     print("\(#function) BLE ressetting")
                 }
             }

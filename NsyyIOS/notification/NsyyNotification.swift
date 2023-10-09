@@ -8,12 +8,11 @@
 import Foundation
 import UserNotifications
 import Vapor
+import UIKit
 
 class NsyyNotification: NSObject {
     
-    // 请求通知权限
-    func requestNotificationPermission() {
-        
+    func requestPermission() {
         let center = UNUserNotificationCenter.current()
         
         center.delegate = self
@@ -42,6 +41,8 @@ class NsyyNotification: NSObject {
             intentIdentifiers: [],
             options: .customDismissAction)
         center.setNotificationCategories([category])
+        
+        
     }
     
     func routes_notification(_ app: Application) throws {
@@ -65,6 +66,7 @@ class NsyyNotification: NSObject {
         content.body = "[" + title + "]" + " " + context
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = "MY_CATEGORY"
+        content.badge = 1
         
         // show this notification five seconds from now
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
@@ -81,6 +83,7 @@ class NsyyNotification: NSObject {
             }
         }
     }
+    
     
 }
 
@@ -103,6 +106,7 @@ extension NsyyNotification: UNUserNotificationCenterDelegate {
         default:
             break
         }
+        UIApplication.shared.applicationIconBadgeNumber = 0
         completionHandler()
     }
     
@@ -112,6 +116,6 @@ extension NsyyNotification: UNUserNotificationCenterDelegate {
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // New in iOS 10, we can show notifications when app is in foreground, by calling completion handler with our desired presentation type.
         
-        completionHandler(.alert)
+        completionHandler([.alert, .badge, .sound])
     }
 }
