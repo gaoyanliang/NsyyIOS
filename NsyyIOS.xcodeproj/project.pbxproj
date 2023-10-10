@@ -525,6 +525,7 @@
 				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用程序需要使用蓝牙";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用程序需要使用蓝牙";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "本应用将会一直获取位置信息";
@@ -560,6 +561,7 @@
 				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用程序需要使用蓝牙";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用程序需要使用蓝牙";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "本应用将会一直获取位置信息";

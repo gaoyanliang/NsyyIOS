@@ -12,6 +12,8 @@ import UIKit
 
 class NsyyNotification: NSObject {
     
+    static var badge = 0
+    
     func requestPermission() {
         let center = UNUserNotificationCenter.current()
         
@@ -60,13 +62,16 @@ class NsyyNotification: NSObject {
     }
     
     func createNotification(title: String, context: String) {
+        
+        NsyyNotification.badge = NsyyNotification.badge + 1
+        
         let content = UNMutableNotificationContent()
         content.title = "南石医院"
         // content.subtitle = "消息通知"
         content.body = "[" + title + "]" + " " + context
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = "MY_CATEGORY"
-        content.badge = 1
+        content.badge = (NsyyNotification.badge) as NSNumber
         
         // show this notification five seconds from now
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
@@ -107,6 +112,7 @@ extension NsyyNotification: UNUserNotificationCenterDelegate {
             break
         }
         UIApplication.shared.applicationIconBadgeNumber = 0
+        NsyyNotification.badge = 0
         completionHandler()
     }
     

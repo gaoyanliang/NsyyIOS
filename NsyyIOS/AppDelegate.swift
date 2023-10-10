@@ -10,17 +10,9 @@ import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var notification: NsyyNotification = NsyyNotification()
-    var bluetooth: NsyyBluetooth = NsyyBluetooth()
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        notification.requestPermission()
-        
-        bluetooth.setUpBluetooth()
         
         // Create location manager singleton
         let manager = SignificantLocationManager.sharedManager
@@ -29,18 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 检查是否因位置发生重大变化而启动
         if launchOptions?[UIApplication.LaunchOptionsKey.location] != nil {
             manager.isRunFromeSystem = true
-            // BackgroundLocationManager.sharedManager.sendLocalNoification()
             print("\(#function) 自动启动完成")
-            notification.createNotification(title: "南石医院", context: "欢迎使用南石医院 APP，祝您度过愉快的一天 (*￣︶￣)")
         }
-        
+        // 实现自动启动 关键API 在注册此接口后，被用户或系统强行退出后，系统依然可以自动启动应用，进行关键位置定位 
         manager.startMonitoringSignificantLocationChanges()
         
         let server = NsyyWebServer(port: 8081)
         server.start()
-        
-        // Reset the app badge to zero
-        UIApplication.shared.applicationIconBadgeNumber = 0
         
         return true
     }
@@ -65,17 +52,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Function to reset the badge
     func resetBadge() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            if settings.authorizationStatus == .authorized {
-                DispatchQueue.main.async {
-                    UIApplication.shared.applicationIconBadgeNumber = 0
-                }
-            }
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            NsyyNotification.badge = 0
         }
     }
 
-    // Call this function when you want to reset the badge, for example, in your AppDelegate
     func applicationDidBecomeActive(_ application: UIApplication) {
+        // This method is triggered when the app becomes active again after being in the background or minimized.
+        // You can perform actions you need when the app is brought back to the foreground here.
         resetBadge()
     }
 }

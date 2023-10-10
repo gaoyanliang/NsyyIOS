@@ -59,7 +59,7 @@ class NsyyBluetooth: NSObject {
                 
                 return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "Bluetooth device connect successful")
             } else {
-                return ReturnData(isSuccess: false, code: 200, errorMsg: "nil", data: "Bluetooth device connect failed, not found cur bluetooth device.")
+                return ReturnData(isSuccess: false, code: 5002, errorMsg: "Bluetooth device connect failed, not found cur bluetooth device.", data: "")
             }
         }
         

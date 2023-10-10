@@ -24,7 +24,7 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
         }
         manager.num = 0
         manager.delegate = manager
-        manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         return manager
     }()
     
@@ -68,7 +68,7 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
             // print("后台任务剩余运行时间 = Undetermined")
         } else {
             print("\(#function) 后台任务剩余运行时间 = \(backgroundTimeRemaining)")
-            if backgroundTimeRemaining < 30 && !isStartUpdatingLocation {
+            if backgroundTimeRemaining < 20 && !isStartUpdatingLocation {
                 print("\(#function) 开始定位")
                 isStartUpdatingLocation = true
                 startUpdatingLocation()

@@ -16,12 +16,17 @@ class NsyyViewController: UIViewController {
     private let urlString: String = "http://oa.nsyy.com.cn:6060"
     var webView: WKWebView!
 
+    var notification: NsyyNotification = NsyyNotification()
     var bluetooth: NsyyBluetooth = NsyyBluetooth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 加载南石医院 OA 系统
         loadNsyyView()
+        
+        bluetooth.setUpBluetooth()
+        
+        notification.requestPermission()
     }
     
     // 加载南石医院 oa 页面
