@@ -68,14 +68,12 @@ class BGTask {
         }
         
         if bgTaskIdList.count > 0 {
-            print("\(#function) 后台任务正在保持运行 \(bgTaskIdList[0])")
+            print("\(#function) 后台任务 \(bgTaskIdList[0]) 正在保持运行")
         }
         
         if all {
             application.endBackgroundTask(masterTaskId)
             masterTaskId = UIBackgroundTaskIdentifier.invalid
-        } else {
-            print("\(#function) 仅保留主任务 \(masterTaskId)")
         }
     }
 }
