@@ -34,6 +34,10 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
     
     private override init() {
         super.init()
+        
+//        NotificationCenter.default.addObserver(BackgroundLocationManager.self, selector: #selector(applicationEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(BackgroundLocationManager.self, selector: #selector(applicationWillBeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+
     }
     
     
@@ -65,10 +69,10 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
     @objc private func bgTaskTimerAction() {
         let backgroundTimeRemaining = UIApplication.shared.backgroundTimeRemaining
         if backgroundTimeRemaining == .greatestFiniteMagnitude {
-            // print("后台任务剩余运行时间 = Undetermined")
+            print("后台任务剩余运行时间 = Undetermined")
         } else {
             print("\(#function) 后台任务剩余运行时间 = \(backgroundTimeRemaining)")
-            if backgroundTimeRemaining < 20 && !isStartUpdatingLocation {
+            if backgroundTimeRemaining < 30 && !isStartUpdatingLocation {
                 print("\(#function) 开始定位")
                 isStartUpdatingLocation = true
                 startUpdatingLocation()
@@ -76,13 +80,21 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
         }
     }
     
-    @objc private func applicationWillBeActive() {
+    func applicationWillBeActive() {
         print("\(#function) 结束后台检测")
         bgTaskTimer?.invalidate()
         bgTaskTimer = nil
+        
+        BGTask.shared.endBackGroundTask(all: true)
     }
     
+    func applicationEnterBackground() {
+        print("\(#function) 进入后台 开始后台时间检测")
+        self.startChickBgTime()
+    }
     
+
+
     
     // 将 CLLocation 转换为具体的地址
     private func locationConvented(location: CLLocation) {

@@ -13,20 +13,21 @@ import Vapor
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
 class NsyyViewController: UIViewController {
 
+    // 南石医院 OA
     private let urlString: String = "http://oa.nsyy.com.cn:6060"
-    var webView: WKWebView!
+    
+    // 南石医院 - 医废
+    //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=13#/"
 
-    var notification: NsyyNotification = NsyyNotification()
-    var bluetooth: NsyyBluetooth = NsyyBluetooth()
+    // 南石医院 - 医废 测试
+    //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=013#/"
+    
+    var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 加载南石医院 OA 系统
         loadNsyyView()
-        
-        bluetooth.setUpBluetooth()
-        
-        notification.requestPermission()
     }
     
     // 加载南石医院 oa 页面
@@ -63,10 +64,7 @@ extension NsyyViewController: WKNavigationDelegate {
 
     // 页面加载完成之后调用
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // This method is called when the web view finishes loading a page.
-        // You can perform actions after the page is fully loaded.
         print("\(#function) 网页加载成功 🎉")
-
     }
 
     // 页面加载失败时调用

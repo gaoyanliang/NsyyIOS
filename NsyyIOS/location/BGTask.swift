@@ -29,7 +29,10 @@ class BGTask {
                 print("\(#function) 后台任务过期 \(bgTaskId)")
                 
                 // 过期任务从后台数据中删除
-                self.bgTaskIdList.remove(at: self.bgTaskIdList.firstIndex(of: bgTaskId)!)
+                if let id = self.bgTaskIdList.firstIndex(of: bgTaskId) {
+                    self.bgTaskIdList.remove(at: id)
+                }
+                
                 bgTaskId = UIBackgroundTaskIdentifier.invalid
                 application.endBackgroundTask(bgTaskId)
             }
@@ -68,7 +71,7 @@ class BGTask {
         }
         
         if bgTaskIdList.count > 0 {
-            print("\(#function) 后台任务 \(bgTaskIdList[0]) 正在保持运行")
+            print("\(#function) 后台任务 \(bgTaskIdList[0]) 正在保持运行, 当前主任务为 \(masterTaskId)")
         }
         
         if all {

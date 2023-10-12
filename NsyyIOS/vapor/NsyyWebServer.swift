@@ -21,8 +21,16 @@ class NsyyWebServer: ObservableObject {
         app = Application(.development)
         app.http.server.configuration.hostname = "0.0.0.0"
         app.http.server.configuration.port = port
-        app.routes.defaultMaxBodySize = "500kb"
+        app.routes.defaultMaxBodySize = "1000kb"
         
+        let corsConfiguration = CORSMiddleware.Configuration(
+            allowedOrigin: .all,
+            allowedMethods: [.GET, .POST, .PUT, .OPTIONS, .DELETE, .PATCH],
+            allowedHeaders: [.accept, .authorization, .contentType, .origin, .xRequestedWith, .userAgent, .accessControlAllowOrigin]
+        )
+        let cors = CORSMiddleware(configuration: corsConfiguration)
+        // cors middleware should come before default error middleware using `at: .beginning`
+        app.middleware.use(cors, at: .beginning)
     }
     
     func start() {

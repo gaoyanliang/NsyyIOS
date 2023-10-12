@@ -19,7 +19,7 @@ class NsyyBluetooth: NSObject {
     
     //扫描到的所有设备
     static var bluetoothDeviceArray: [String:CBPeripheral] = [:]
-    static var bluetoothDeviceList: [BluetoothDevice] = []
+    static var bluetoothDeviceList: [String:CBPeripheral] = [:]
     
     //当前连接的设备
     static var electronicWeigher: CBPeripheral? = nil
@@ -27,7 +27,7 @@ class NsyyBluetooth: NSObject {
     static var notifyCh: CBCharacteristic?
     
     // 接收到的数据
-    static var recvData: [String:String] = [:]
+    static var recvData: [String:Double] = [:]
     
     // 申请位置权限 & 获取位置
     func setUpBluetooth() {
@@ -37,51 +37,68 @@ class NsyyBluetooth: NSObject {
     
     func routes_bluetooth(_ app: Application) throws {
         
-        // 扫描蓝牙设备, 并返回蓝牙设备列表
-        app.get("scanning") {req async -> BluetoothReturnData in
-            self.startScan()
-            return BluetoothReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: NsyyBluetooth.bluetoothDeviceList)
-        }
-        
-        // 连接蓝牙设备
-        app.on(.POST, "connect", body: .stream) { req -> ReturnData in
-            self.stopScan()
-            
-            let bluetoothDevice = try req.content.decode(BluetoothDevice.self)
-            print("准备连接蓝牙设备： \(bluetoothDevice)")
-            
-            if let devicePeripheral = NsyyBluetooth.bluetoothDeviceArray[bluetoothDevice.id] {
-                // 不管之前是否连接过，先断开连接
-                self.disconnect(peripheral: devicePeripheral)
-                
-                // 重新连接
-                self.doConnect(peripheral: devicePeripheral)
-                
-                return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "Bluetooth device connect successful")
-            } else {
-                return ReturnData(isSuccess: false, code: 5002, errorMsg: "Bluetooth device connect failed, not found cur bluetooth device.", data: "")
-            }
-        }
-        
         // 获取电子秤重量
         // 1. 向电子秤发送 “R”
         // 2. 等待电子秤返回重量
-        app.get("weight") { req async -> ReturnData in
+        app.get("get_weight") { req async -> WeightReturn in
+            
+            let isConnect = self.isConnect()
+            
+            if !isConnect {
+                return WeightReturn(res: "获取重量失败，未成功连接蓝牙设备，请检查配置", code: 20001, bag_weight: 0)
+            }
+            
+            
             if NsyyBluetooth.electronicWeigher?.state != CBPeripheralState.connected {
-                return ReturnData(isSuccess: false, code: 200, errorMsg: "获取重量失败，未成功连接当前蓝牙设备", data: "")
+                return WeightReturn(res: "获取重量失败，未成功连接蓝牙设备，请检查配置", code: 20002, bag_weight: 0)
             }
             
             self.sendPacketWithPieces(data: "R".data(using: .utf8)!, peripheral: NsyyBluetooth.electronicWeigher!, characteristic: NsyyBluetooth.writeCh!)
             
             if let returnData = NsyyBluetooth.recvData[(NsyyBluetooth.electronicWeigher?.identifier.uuidString)!] {
-                return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: returnData)
+                return WeightReturn(res: "成功获取重量", code: 20000, bag_weight: returnData)
             } else {
-                return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "")
+                return WeightReturn(res: "获取重量失败，未接受到电子秤返回的重量", code: 20003, bag_weight: 0)
             }
-           
+            
         }
         
     }
+    
+    
+    func isConnect() -> Bool {
+        // Access a boolean setting
+        if let mac_address = UserDefaults.standard.value(forKey: "mac_address") as? String {
+            
+            for (add, device) in NsyyBluetooth.bluetoothDeviceList {
+                if !add.contains(mac_address) {
+                    continue
+                }
+                
+                if device.state == .connected {
+                    print("\(#function) 设备已连接. \(device) ")
+                    return true
+                }
+                
+                print("\(#function) 设备未连接，开始连接 \(device) ")
+                NsyyBluetooth.electronicWeigher = device
+                doConnect(peripheral: NsyyBluetooth.electronicWeigher!)
+                
+                // Delay the task by 0.5 second:
+                Thread.sleep(forTimeInterval: 0.5)
+                
+                return true
+            }
+            
+            return false
+            
+        } else {
+            print("\(#function) 未发现蓝牙秤 MAC 地址相关配置")
+            return false
+        }
+    }
+    
+    
 
     
     //MARK: - Private Method
@@ -95,19 +112,19 @@ class NsyyBluetooth: NSObject {
     ///断开连接
     func disconnect(peripheral: CBPeripheral) {
         NsyyBluetooth.centralManager?.cancelPeripheralConnection(peripheral)
+        print("\(#function) 断开连接 \(peripheral)")
     }
     
     ///开始扫描
     func startScan(serviceUUIDS:[CBUUID]? = nil, options:[String: Any]? = nil) {
         NsyyBluetooth.centralManager?.scanForPeripherals(withServices: serviceUUIDS, options: options)
-        
-        // Delay the task by 0.1 second:
-        Thread.sleep(forTimeInterval: 0.1)
+        print("\(#function) 开始扫描蓝牙设备")
     }
     
     ///停止扫描
     func stopScan() {
         NsyyBluetooth.centralManager?.stopScan()
+        print("\(#function) 停止扫描蓝牙设备")
     }
     
     ///发送数据包给设备
@@ -127,8 +144,17 @@ class NsyyBluetooth: NSObject {
         Thread.sleep(forTimeInterval: 0.2)
     }
     
-    
-    
+}
+
+
+
+
+extension Request {
+    func jsonResponse<T: Encodable>(_ data: T) throws -> Response {
+        let response = Response()
+        try response.content.encode(data, as: .json)
+        return response
+    }
 }
 
 
@@ -142,7 +168,7 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
         
         if #available(iOS 10.0, *) {
             if central.state == CBManagerState.poweredOn {
-                print("\(#function) 蓝牙已开启！开始扫描蓝牙设备")
+                print("\(#function) 蓝牙已开启!")
                 startScan()
             } else {
                 if central.state == CBManagerState.poweredOff {
@@ -165,30 +191,58 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
     // MARK: 中心管理器扫描到了设备
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-        if NsyyBluetooth.bluetoothDeviceArray.contains(where: { $0.key == peripheral.identifier.uuidString }) {
+        guard let deviceName = peripheral.name, deviceName.count > 0 else {
             return
         }
         
-        guard let deviceName = peripheral.name, deviceName.count > 0 else {
+        if let curBluetooth = NsyyBluetooth.bluetoothDeviceArray[peripheral.identifier.uuidString] {
+            print("设备已存在 \(curBluetooth)")
             return
         }
         
         print("\(#function) 发现蓝牙设备 peripheral:\(peripheral) \n")
         var macAddress: String! = ""
         if let mData = advertisementData["kCBAdvDataManufacturerData"] as? Data {
-            let macAddressData: Data = mData.subdata(in: 2..<8)
-            macAddress = macAddressData.map { String(format: "%02X", $0) }.joined(separator: ":")
+            macAddress = mData.map { String(format: "%02X", $0) }.joined()
         }
         
+        print("\(#function) 当前蓝牙设备 peripheral:\(peripheral) 的 mac 地址为 \(String(describing: macAddress))")
         NsyyBluetooth.bluetoothDeviceArray[peripheral.identifier.uuidString] = peripheral
-        NsyyBluetooth.bluetoothDeviceList.append(BluetoothDevice(id: peripheral.identifier.uuidString, name: peripheral.name!, macAddress: macAddress))
+        if macAddress != "" {
+            NsyyBluetooth.bluetoothDeviceList[macAddress] = peripheral
+        }
+        
+        // 如果发现配置的设备，直接尝试连接
+        if let mac_address = UserDefaults.standard.value(forKey: "mac_address") as? String {
+            for (add, device) in NsyyBluetooth.bluetoothDeviceList {
+                if !add.contains(mac_address) {
+                    continue
+                }
+                
+                print("发现配置的蓝牙秤，开始尝试连接")
+                
+                if device.state == .connected || device.state == .connecting {
+                    print("\(#function) 设备已连接. \(device) ")
+                    break
+                }
+                
+                print("\(#function) 设备未连接，开始连接 \(device) ")
+                NsyyBluetooth.electronicWeigher = device
+                doConnect(peripheral: NsyyBluetooth.electronicWeigher!)
+            }
+        } else {
+            print("\(#function) 未发现蓝牙秤 MAC 地址相关配置")
+        }
+           
+
     }
     
     // MARK: 连接外设成功，开始发现服务
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("\(#function) 蓝牙设备连接成功。peripheral:\(peripheral)\n")
+        
         //连接成功后停止扫描，节省内存
         self.stopScan()
-        print("\(#function) 蓝牙设备连接成功。peripheral:\(peripheral)\n")
         
         // 设置代理
         peripheral.delegate = self
@@ -253,17 +307,30 @@ extension NsyyBluetooth: CBPeripheralDelegate {
             return
         }
         //拿到设备发送过来的值,传出去并进行处理
-        // TODO 确定下是否是本次请求
         if characteristic.value != nil {
             
             var weight = String(decoding: characteristic.value!, as: UTF8.self)
             weight = weight.replacingOccurrences(of: " ", with: "")
             weight = weight.replacingOccurrences(of: "\r", with: "")
             weight = weight.replacingOccurrences(of: "\n", with: "")
+            
+            weight = weight.replacingOccurrences(of: "+", with: "")
+            weight = weight.replacingOccurrences(of: "-", with: "")
+            
+            weight = weight.replacingOccurrences(of: "g", with: "")
+            weight = weight.replacingOccurrences(of: "k", with: "")
+            weight = weight.replacingOccurrences(of: "G", with: "")
+            weight = weight.replacingOccurrences(of: "K", with: "")
+
             weight = weight.components(separatedBy: ",")[2]
             
-            NsyyBluetooth.recvData[peripheral.identifier.uuidString] = weight
-            print("\(#function) 接收到蓝牙设备返回数据 " + weight)
+            if let data: Double = Double(weight) {
+                let get_weight: Double = data / 1000
+                NsyyBluetooth.recvData[peripheral.identifier.uuidString] = get_weight.roundTo(places: 3)
+                print("\(#function) 接收到蓝牙设备返回数据 \(get_weight)")
+            }
+            
+           
         }
     }
     
@@ -277,5 +344,14 @@ extension NsyyBluetooth: CBPeripheralDelegate {
         
         
     }
+}
+
+extension Double {
+    /// Rounds the float to decimal places value
+    func roundTo(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+
 }
 

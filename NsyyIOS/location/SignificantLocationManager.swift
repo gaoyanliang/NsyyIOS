@@ -20,9 +20,10 @@ class SignificantLocationManager: CLLocationManager, CLLocationManagerDelegate {
     
     var isRunFromeSystem: Bool = false //是否是系统因为位置发生重大变化，自动启动了程序
     var isUnStartBackgoundLocation: Bool = false
+    
     private var num: Int = 0 //定位计数，用以判断每次程序启动定位了几次
     
-    
+    // MARK: - 初始化
     /**
      * 1.单例，重大位置改变定位需要使用单例而且必须在 didFinishLaunchingWithOptions 进行初始化
      * 2.因为假如应用被系统或者用户强制退出，当有重大位置改变时候，系统会重新启动程序，从而调用 didFinishLaunchingWithOptions 方法，但是这时候系统后台启动程序，所以只有将SignificantLocationManager的初始化放在didFinishLaunchingWithOptions才能保证每次系统自动启动程序可以进行初始化
@@ -42,28 +43,40 @@ class SignificantLocationManager: CLLocationManager, CLLocationManagerDelegate {
         super.init()
     }
     
+    
+    
+    // MARK: - 位置更新
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let loc = locations.first else { return }
         
+        print("\(#function) 重大位置变更定位 \(loc)")
         self.locationConvented(location: loc)
         
         
         if UIApplication.shared.applicationState == .background {
-            print("\(#function) 程序启动，后台 第 \(num) 次定位， isRunFromeSystem \(isRunFromeSystem)")
-        } else {
-            print("\(#function) 程序启动，前台 第 \(num) 次定位， isRunFromeSystem \(isRunFromeSystem)")
+            print("\(#function) 程序启动 第 \(num) 次定位")
         }
+        
         
         num += 1
         
-        if self.isUnStartBackgoundLocation && UIApplication.shared.applicationState == .background {
-            self.isUnStartBackgoundLocation = true
+        if UIApplication.shared.applicationState == .background{
             BackgroundLocationManager.sharedManager.startChickBgTime()
         }
+        
+//        if self.isUnStartBackgoundLocation {
+//            if UIApplication.shared.applicationState == .background && !isFirstRun{
+//                self.isUnStartBackgoundLocation = true
+//                BackgroundLocationManager.sharedManager.startChickBgTime()
+//            }
+//        }
+//        
+//        self.isFirstRun = false
     }
     
     
     
+    // MARK: - 位置转换
     // 将 CLLocation 转换为具体的地址
     private func locationConvented(location: CLLocation) {
         let geocoder = CLGeocoder()
@@ -107,7 +120,7 @@ class SignificantLocationManager: CLLocationManager, CLLocationManagerDelegate {
     }
     
     
-    
+    // 注册获取位置接口
     func routes_location(_ app: Application) throws {
         app.get("location") { req async -> ReturnData in
             if SignificantLocationManager.cur_location != "" {

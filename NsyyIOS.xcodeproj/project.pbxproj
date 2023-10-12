@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1323D32C2AD550A900C8F03C /* Settings.bundle */; };
 		132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */; };
 		1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */; };
 		1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */; };
@@ -26,7 +27,6 @@
 		134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B22AC2C63D0057C11D /* NsyyWebServer.swift */; };
 		134828B52AC2CEC90057C11D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B42AC2CEC90057C11D /* Notification.swift */; };
 		134828B72AC2D5950057C11D /* ReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B62AC2D5950057C11D /* ReturnData.swift */; };
-		134828C12AC50EBE0057C11D /* NsyyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828C02AC50EBE0057C11D /* NsyyLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1323D32C2AD550A900C8F03C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyNotification.swift; sourceTree = "<group>"; };
 		1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyBluetooth.swift; sourceTree = "<group>"; };
 		1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReturnData.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		134828B22AC2C63D0057C11D /* NsyyWebServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyWebServer.swift; sourceTree = "<group>"; };
 		134828B42AC2CEC90057C11D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		134828B62AC2D5950057C11D /* ReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnData.swift; sourceTree = "<group>"; };
-		134828C02AC50EBE0057C11D /* NsyyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +110,7 @@
 		1337D8842ABD945000A8F46D = {
 			isa = PBXGroup;
 			children = (
+				1323D32C2AD550A900C8F03C /* Settings.bundle */,
 				1337D88F2ABD945000A8F46D /* NsyyIOS */,
 				1337D8A62ABD945100A8F46D /* NsyyIOSTests */,
 				1337D8B02ABD945100A8F46D /* NsyyIOSUITests */,
@@ -183,7 +184,6 @@
 		134828BF2AC50E920057C11D /* location */ = {
 			isa = PBXGroup;
 			children = (
-				134828C02AC50EBE0057C11D /* NsyyLocation.swift */,
 				1332BCD92AD2AF410097C92B /* BGTask.swift */,
 				1332BCDB2AD2AFCC0097C92B /* SignificantLocationManager.swift */,
 				1332BCDD2AD2B0900097C92B /* BackgroundLocationManager.swift */,
@@ -301,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */,
 				1337D89D2ABD945100A8F46D /* LaunchScreen.storyboard in Resources */,
 				1337D89A2ABD945100A8F46D /* Assets.xcassets in Resources */,
 				1337D8982ABD945000A8F46D /* Main.storyboard in Resources */,
@@ -334,7 +335,6 @@
 				1332BCDE2AD2B0900097C92B /* BackgroundLocationManager.swift in Sources */,
 				132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */,
 				134828B72AC2D5950057C11D /* ReturnData.swift in Sources */,
-				134828C12AC50EBE0057C11D /* NsyyLocation.swift in Sources */,
 				1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */,
 				1332BCDA2AD2AF410097C92B /* BGTask.swift in Sources */,
 				134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */,
@@ -526,12 +526,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用程序需要使用蓝牙";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用程序需要使用蓝牙";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "本应用将会一直获取位置信息";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "本应用将会一直获取位置信息";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "应用需要获取位置信息";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "应用需要获取位置信息";
 				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "获取位置信息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要获取位置信息";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -543,7 +543,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.NsyyIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.Nsyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -562,12 +562,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用程序需要使用蓝牙";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用程序需要使用蓝牙";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "本应用将会一直获取位置信息";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "本应用将会一直获取位置信息";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "应用需要获取位置信息";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "应用需要获取位置信息";
 				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "获取位置信息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要获取位置信息";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -579,7 +579,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.NsyyIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.Nsyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -63,8 +63,8 @@
             filePath = "NsyyIOS/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
             <Locations>
@@ -111,8 +111,8 @@
             filePath = "NsyyIOS/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -143,8 +143,8 @@
             filePath = "NsyyIOS/vapor/NsyyWebServer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "start()"
             landmarkType = "7">
             <Locations>
@@ -280,16 +280,63 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "10D7B02E-4908-4629-926B-D9061E2AAA3F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "peripheral(_:didUpdateValueFor:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "10D7B02E-4908-4629-926B-D9061E2AAA3F - 3edc1bfa40f1c567"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.peripheral(_: __C.CBPeripheral, didUpdateValueFor: __C.CBCharacteristic, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "2096">
+               </Location>
+               <Location
+                  uuid = "10D7B02E-4908-4629-926B-D9061E2AAA3F - 3edc1bfa40f1c5db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.peripheral(_: __C.CBPeripheral, didUpdateValueFor: __C.CBCharacteristic, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "301"
+                  endingLineNumber = "301"
+                  offsetFromSymbolStart = "1528">
+               </Location>
+               <Location
+                  uuid = "10D7B02E-4908-4629-926B-D9061E2AAA3F - 3edc1bfa40f1c5ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.peripheral(_: __C.CBPeripheral, didUpdateValueFor: __C.CBCharacteristic, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "300"
+                  endingLineNumber = "300"
+                  offsetFromSymbolStart = "1856">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -318,8 +365,8 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +381,8 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,58 +397,10 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6FB76ED8-FEA9-4470-A323-BD44099875B4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6FB76ED8-FEA9-4470-A323-BD44099875B4 - eea09e6102f5a3d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "197"
-                  endingLineNumber = "197"
-                  offsetFromSymbolStart = "1984">
-               </Location>
-               <Location
-                  uuid = "6FB76ED8-FEA9-4470-A323-BD44099875B4 - e64fe3edb3eef91"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((key: Swift.String, value: __C.CBPeripheral)) -&gt; Swift.Bool in NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "197"
-                  endingLineNumber = "197"
-                  offsetFromSymbolStart = "1060">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,10 +413,42 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "031B91A8-C35C-4165-AA58-1189D0F0E6A4 - 524ca9e754000424"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "8568">
+               </Location>
+               <Location
+                  uuid = "031B91A8-C35C-4165-AA58-1189D0F0E6A4 - 524ca9e754000487"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "5212">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -430,336 +461,24 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "routes_bluetooth(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "routes_bluetooth(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - f7bbff1e55469cc8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "2244">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - ca23a9743f5ea339"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 @Sendable (Vapor.Request) async -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - 7c68eca732762ec6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #3 @Sendable (Vapor.Request) async -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - ca23a9743f5ebc11"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 @Sendable (Vapor.Request) async -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - 7c68eca7327631ee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #3 @Sendable (Vapor.Request) async -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - f7bbff1e55469c8a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "2244">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - ca23a9743f5ebfd3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 @Sendable (Vapor.Request) async -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "ACBEBDE3-DC88-4394-834F-BE9FCDC415A5 - 7c68eca73276322c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #3 @Sendable (Vapor.Request) async -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "188">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DE32F37B-946A-41CF-A859-F2625196A369"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "routes_bluetooth(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DE32F37B-946A-41CF-A859-F2625196A369 - 484b7963580bc18b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable (Vapor.Request) throws -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "3068">
-               </Location>
-               <Location
-                  uuid = "DE32F37B-946A-41CF-A859-F2625196A369 - 484b7963580bc18b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable (Vapor.Request) throws -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "3680">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DB0062DB-4547-4F54-A3CB-2AB29F8206E6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "centralManager(_:didConnect:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DB0062DB-4547-4F54-A3CB-2AB29F8206E6 - 943cc165eeebdbc8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didConnect: __C.CBPeripheral) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "219"
-                  endingLineNumber = "219"
-                  offsetFromSymbolStart = "772">
-               </Location>
-               <Location
-                  uuid = "DB0062DB-4547-4F54-A3CB-2AB29F8206E6 - 943cc165eeebdb65"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didConnect: __C.CBPeripheral) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "224"
-                  endingLineNumber = "224"
-                  offsetFromSymbolStart = "708">
-               </Location>
-               <Location
-                  uuid = "DB0062DB-4547-4F54-A3CB-2AB29F8206E6 - 943cc165eeebdb65"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didConnect: __C.CBPeripheral) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "224"
-                  endingLineNumber = "224"
-                  offsetFromSymbolStart = "772">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "562FA1BF-03E7-4124-BC68-5D39E579A0AE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "routes_bluetooth(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "562FA1BF-03E7-4124-BC68-5D39E579A0AE - 484b7963580bc120"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable (Vapor.Request) throws -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "3744">
-               </Location>
-               <Location
-                  uuid = "562FA1BF-03E7-4124-BC68-5D39E579A0AE - 484b7963580bc14d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable (Vapor.Request) throws -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "3744">
-               </Location>
-               <Location
-                  uuid = "562FA1BF-03E7-4124-BC68-5D39E579A0AE - 484b7963580bc18b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable (Vapor.Request) throws -&gt; NsyyIOS.ReturnData in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "3744">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ABA4D47F-60F2-4075-BB02-667FAE21868D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "doConnect(peripheral:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -774,8 +493,8 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "routes_bluetooth(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -790,10 +509,912 @@
             filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "sendPacketWithPieces(data:peripheral:characteristic:type:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A012A0C-AE9F-446E-A6E2-EDBAAA1D37CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A012A0C-AE9F-446E-A6E2-EDBAAA1D37CD - 812cc6bde64def04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "884">
+               </Location>
+               <Location
+                  uuid = "2A012A0C-AE9F-446E-A6E2-EDBAAA1D37CD - 812cc6bde64def27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/ios/NsyyIOS/NsyyIOS/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "920">
+               </Location>
+               <Location
+                  uuid = "2A012A0C-AE9F-446E-A6E2-EDBAAA1D37CD - 22f801ca39d3c6df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1800">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CE808A7-E2C2-45F4-AF36-145C0EE36E0A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "scene(_:willConnectTo:options:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6CE808A7-E2C2-45F4-AF36-145C0EE36E0A - fee5c662f1993e5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "856">
+               </Location>
+               <Location
+                  uuid = "6CE808A7-E2C2-45F4-AF36-145C0EE36E0A - fee5c662f1993e5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "896">
+               </Location>
+               <Location
+                  uuid = "6CE808A7-E2C2-45F4-AF36-145C0EE36E0A - fee5c662f1993e1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1812">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "isConnect()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF - 169e1b4aee9e69ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "864">
+               </Location>
+               <Location
+                  uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF - 169e1b4aee9e69ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2108">
+               </Location>
+               <Location
+                  uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF - 169e1b4aee9e69ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "920">
+               </Location>
+               <Location
+                  uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF - 169e1b4aee9e69ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2164">
+               </Location>
+               <Location
+                  uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF - 169e1b4aee9e698d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "1024">
+               </Location>
+               <Location
+                  uuid = "CA9EEF0D-A6B9-4A86-B7E4-F14D3D6BD0BF - 169e1b4aee9e698d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "2260">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A3B2737-589F-4A41-AA8F-0388B01425B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "isConnect()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4608BC84-EE3B-48E5-AA07-75813CEE91D9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FAC842F-8A2D-45CA-BD10-3A58200609AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D777F7F8-304A-4ACF-8922-ABCC94E505BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "isConnect()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D777F7F8-304A-4ACF-8922-ABCC94E505BF - 169e1b4aee9e6968"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "3244">
+               </Location>
+               <Location
+                  uuid = "D777F7F8-304A-4ACF-8922-ABCC94E505BF - 169e1b4aee9e6909"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "3344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE390F9A-BFB4-4CB2-9360-093B79DBA5A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "isConnect()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BE390F9A-BFB4-4CB2-9360-093B79DBA5A2 - 169e1b4aee9e68e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "3556">
+               </Location>
+               <Location
+                  uuid = "BE390F9A-BFB4-4CB2-9360-093B79DBA5A2 - 169e1b4aee9e68a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.isConnect() -&gt; Swift.Bool"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "4676">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F82C22E7-E7F6-4BD3-A90C-9AE765B80A44"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "isConnect()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE36AF69-FF19-4F5A-A878-2C2EFAA1F95A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "centralManager(_:didDiscover:advertisementData:rssi:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE36AF69-FF19-4F5A-A878-2C2EFAA1F95A - 524ca9e7540004fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "4588">
+               </Location>
+               <Location
+                  uuid = "CE36AF69-FF19-4F5A-A878-2C2EFAA1F95A - f199d0553dee755f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.UInt8) -&gt; Swift.String in NsyyIOS.NsyyBluetooth.centralManager(_: __C.CBCentralManager, didDiscover: __C.CBPeripheral, advertisementData: Swift.Dictionary&lt;Swift.String, Any&gt;, rssi: __C.NSNumber) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "504">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3478956-BDFC-4EC1-AA52-E27E3B44A4C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "peripheral(_:didUpdateValueFor:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80A97DEA-FDE6-41C8-A444-1AE87CE3A676"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/location/SignificantLocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "070025A0-C89E-4236-896B-272F349B112A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/location/SignificantLocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "070025A0-C89E-4236-896B-272F349B112A - 24ba458fab09d625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "5896">
+               </Location>
+               <Location
+                  uuid = "070025A0-C89E-4236-896B-272F349B112A - 24ba458fab09d625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "5980">
+               </Location>
+               <Location
+                  uuid = "070025A0-C89E-4236-896B-272F349B112A - 24ba458fab09d686"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "5980">
+               </Location>
+               <Location
+                  uuid = "070025A0-C89E-4236-896B-272F349B112A - 24ba458fab09eb8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "6376">
+               </Location>
+               <Location
+                  uuid = "070025A0-C89E-4236-896B-272F349B112A - 24ba458fab09eb8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "6884">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D06EB0D7-14E1-45E4-B12D-7021C2DC193C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/location/SignificantLocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D06EB0D7-14E1-45E4-B12D-7021C2DC193C - 24ba458fab09d60a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "5564">
+               </Location>
+               <Location
+                  uuid = "D06EB0D7-14E1-45E4-B12D-7021C2DC193C - 24ba458fab09d6e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "5564">
+               </Location>
+               <Location
+                  uuid = "D06EB0D7-14E1-45E4-B12D-7021C2DC193C - 24ba458fab09ebec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SignificantLocationManager.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/location/SignificantLocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "5640">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5265C720-4334-4A10-8640-DBF110AF4B24"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/bluetooth/NsyyBluetooth.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "routes_bluetooth(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5265C720-4334-4A10-8640-DBF110AF4B24 - c095f3b3931761ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (Vapor.Request) async -&gt; NsyyIOS.WeightReturn in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "6280">
+               </Location>
+               <Location
+                  uuid = "5265C720-4334-4A10-8640-DBF110AF4B24 - c095f3b393176406"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (Vapor.Request) async -&gt; NsyyIOS.WeightReturn in NsyyIOS.NsyyBluetooth.routes_bluetooth(Vapor.Application) throws -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/bluetooth/NsyyBluetooth.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "6280">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA13DD0B-7B0A-4D55-BF4B-A2A20E8C17A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "application(_:configurationForConnecting:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B15720F-DA6D-4B56-B888-C0382E5973C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "application(_:didDiscardSceneSessions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8263087-04EC-44C5-A6DF-EB7A4303A721"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "sceneDidBecomeActive(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A8263087-04EC-44C5-A6DF-EB7A4303A721 - fa1796eb98a3705d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneDidBecomeActive(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1172">
+               </Location>
+               <Location
+                  uuid = "A8263087-04EC-44C5-A6DF-EB7A4303A721 - fa1796eb98a3707e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneDidBecomeActive(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80F83B53-7976-4CA7-BFED-3DDFAE003C6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "sceneWillResignActive(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80F83B53-7976-4CA7-BFED-3DDFAE003C6C - ecd1028db183c909"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneWillResignActive(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "80F83B53-7976-4CA7-BFED-3DDFAE003C6C - ecd1028db183c909"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneWillResignActive(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "652">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E17F8CDD-992E-409A-BA1B-F51CBF1E9E9C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "sceneWillEnterForeground(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E17F8CDD-992E-409A-BA1B-F51CBF1E9E9C - 5670b94808967761"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneWillEnterForeground(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "E17F8CDD-992E-409A-BA1B-F51CBF1E9E9C - 5670b94808967761"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneWillEnterForeground(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "664">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A0DF283-F7EE-49F5-AEEC-BBAFF2BBF124"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/SceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "sceneDidEnterBackground(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8A0DF283-F7EE-49F5-AEEC-BBAFF2BBF124 - 1736b33e846bbb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneDidEnterBackground(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "8A0DF283-F7EE-49F5-AEEC-BBAFF2BBF124 - 1736b33e846bbb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.SceneDelegate.sceneDidEnterBackground(__C.UIScene) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/SceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "664">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

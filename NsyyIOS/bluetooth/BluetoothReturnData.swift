@@ -19,3 +19,9 @@ struct BluetoothDevice: Content {
     let name: String
     let macAddress: String
 }
+
+struct WeightReturn: Content {
+    let res: String
+    let code: Int
+    let bag_weight: Double
+}
