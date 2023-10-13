@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1323D32C2AD550A900C8F03C /* Settings.bundle */; };
-		1323D3462AD8086B00C8F03C /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1323D3452AD8086B00C8F03C /* ScanController.swift */; };
+		1323D3462AD8086B00C8F03C /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1323D3452AD8086B00C8F03C /* QRScanViewController.swift */; };
 		132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */; };
 		1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */; };
 		1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */; };
@@ -49,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		1323D32C2AD550A900C8F03C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		1323D3452AD8086B00C8F03C /* ScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanController.swift; sourceTree = "<group>"; };
+		1323D3452AD8086B00C8F03C /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
 		132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyNotification.swift; sourceTree = "<group>"; };
 		1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyBluetooth.swift; sourceTree = "<group>"; };
 		1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReturnData.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		1323D32E2AD802EA00C8F03C /* scan */ = {
 			isa = PBXGroup;
 			children = (
-				1323D3452AD8086B00C8F03C /* ScanController.swift */,
+				1323D3452AD8086B00C8F03C /* QRScanViewController.swift */,
 			);
 			path = scan;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				1337D8912ABD945000A8F46D /* AppDelegate.swift in Sources */,
 				1332BCDE2AD2B0900097C92B /* BackgroundLocationManager.swift in Sources */,
 				132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */,
-				1323D3462AD8086B00C8F03C /* ScanController.swift in Sources */,
+				1323D3462AD8086B00C8F03C /* QRScanViewController.swift in Sources */,
 				134828B72AC2D5950057C11D /* ReturnData.swift in Sources */,
 				1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */,
 				1332BCDA2AD2AF410097C92B /* BGTask.swift in Sources */,

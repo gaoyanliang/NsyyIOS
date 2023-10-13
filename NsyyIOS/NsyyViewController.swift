@@ -33,6 +33,8 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
     
     var webView: WKWebView!
     
+    var result: NSString!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,16 +68,34 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
     }
     
     func scanCodeAndSendResultToJS() {
-        print("\(#function) 被调用")
-        setupScanner()
         
-        // Implement your code scanning logic here
-        guard let videoPreviewLayer = videoPreviewLayer else { return }
-
-        let captureMetadataOutput = captureSession.outputs.first as? AVCaptureMetadataOutput
-        captureMetadataOutput?.rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: videoPreviewLayer.bounds)
-
-        captureSession.startRunning()
+        var vc = QRScanViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.delegate = self
+        self.showDetailViewController(vc, sender: nil)
+        
+        print("\(#function) 被调用")
+//        setupScanner()
+//        
+//        // Implement your code scanning logic here
+//        guard let videoPreviewLayer = videoPreviewLayer else { return }
+//
+//        let captureMetadataOutput = captureSession.outputs.first as? AVCaptureMetadataOutput
+//        captureMetadataOutput?.rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: videoPreviewLayer.bounds)
+//
+//        captureSession.startRunning()
+    }
+    
+    func qrScanResult(_ result: String, viewController qrScanVC: QRScanViewController) {
+        if let navigationController = qrScanVC.navigationController {
+            navigationController.popViewController(animated: false)
+            
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NsyyViewController") as? NsyyViewController {
+                vc.result = result as NSString
+                vc.hidesBottomBarWhenPushed = true
+                show(vc, sender: nil)
+            }
+        }
     }
     
     
@@ -157,8 +177,10 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
                 captureSession.stopRunning()
                 
                 // Send the result back to JavaScript
-                let jsCode = "receiveScanResult('\(stringValue)');"
+                let jsCode = "receiveScanResult('\(stringValue)')"
                 webView.evaluateJavaScript(jsCode, completionHandler: nil)
+                
+                navigationController?.popViewController(animated: true)
             }
         }
     }
