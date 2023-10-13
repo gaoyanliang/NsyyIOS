@@ -14,10 +14,10 @@ import Vapor
 class NsyyViewController: UIViewController {
 
     // 南石医院 OA
-    private let urlString: String = "http://oa.nsyy.com.cn:6060"
+    // private let urlString: String = "http://oa.nsyy.com.cn:6060"
     
     // 南石医院 - 医废
-    //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=13#/"
+    private let urlString: String = "http://120.194.96.67:6060/index1.html?type=13#/"
 
     // 南石医院 - 医废 测试
     //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=013#/"
