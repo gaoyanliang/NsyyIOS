@@ -49,6 +49,8 @@ class NsyyWebServer: ObservableObject {
     
     func routes(_ app: Application) throws {
         app.get("ping") { req async -> ReturnData in
+            
+            
             return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "SERVER OK")
         }
     }
