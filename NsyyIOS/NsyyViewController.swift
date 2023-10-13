@@ -33,7 +33,7 @@ class NsyyViewController: UIViewController {
     // 加载南石医院 oa 页面
     func loadNsyyView() {
         // Initialize WKWebView
-        webView = WKWebView(frame: view.frame)
+        webView = WKWebView(frame: view.bounds)
         webView.navigationDelegate = self
         
         // 允许左滑右滑，默认值为NO；设置为YES后，即可实现左右滑手势可用。
@@ -45,6 +45,11 @@ class NsyyViewController: UIViewController {
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webView.load(request)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
     }
 }
 
