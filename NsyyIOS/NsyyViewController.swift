@@ -75,162 +75,45 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
             // Call your code scanning function here
             // This function should communicate with your code scanning library
             // and then send the result back to JavaScript
+            
             print("\(#function) 执行 \(message.name)")
             scanCodeAndSendResultToJS()
-            //btnScanClick()
         }
     }
-    
-//    func btnScanClick() {
-//        
-//        let vc = ScannerVC()
-//        //默认(push)
-//        vc.setupScanner { (code) in
-//            
-//            print(code)
-//            
-//            self.receiveScanReturn(code: code)
-//            
-//            // 扫描成功，关闭扫描页面
-//            self.dismiss(animated: true, completion: nil)
-//        }
-//        
-//        // 弹出扫码页面
-//        present(vc, animated: true, completion: nil)
-//        
-////        let vc = QRScanViewController()
-////        vc.delegate = self
-////        vc.hidesBottomBarWhenPushed = true
-////        show(vc, sender: nil)
-//    }
-    
-    
-//    func receiveScanReturn(code: String) {
-//        
-//        let jsCode = "receiveScanResult('\(code)');"
-//        print("\(#function) 调用 js 方法 \(jsCode)")
-//
-//        webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
-//            if let error = error {
-//                print("Error calling JavaScript function: \(error)")
-//            } else if let result = result {
-//                print("JavaScript result: \(result)")
-//            }
-//        })
-//    }
-//    
     
     func scanCodeAndSendResultToJS() {
         print("\(#function) 开始扫码")
-        setupScanner()
         
-        // Implement your code scanning logic here
-        guard let videoPreviewLayer = videoPreviewLayer else { return }
-
-        let captureMetadataOutput = captureSession.outputs.first as? AVCaptureMetadataOutput
-        captureMetadataOutput?.rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: videoPreviewLayer.bounds)
-
-        captureSession.startRunning()
-    }
-    
-    
-    func setupScanner() {
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
-        
-        guard let captureDevice = deviceDiscoverySession.devices.first else {
-            print("Failed to get the camera device")
-            return
-        }
-        
-        do {
-            // 在添加新的 input 之前，先删除旧的
-            if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
-                for input in inputs {
-                    captureSession.removeInput(input)
-                }
-            }
+        let vc = ScannerVC()
+        //默认(push)
+        vc.setupScanner { (code) in
             
-            let input = try AVCaptureDeviceInput(device: captureDevice)
-            captureSession.addInput(input)
-        } catch {
-            print("Error setting up AVCaptureDeviceInput: \(error)")
-            return
+            print(code)
+            
+            self.receiveScanReturn(code: code)
+            
+            // 扫描成功，关闭扫描页面
+            self.dismiss(animated: true, completion: nil)
         }
-    
         
-        // 在添加新的 output 之前，先删除旧的
-        if let outputs = captureSession.outputs as? [AVCaptureMetadataOutput] {
-            for output in outputs {
-                captureSession.removeOutput(output)
-            }
-        }
-        let captureMetadataOutput = AVCaptureMetadataOutput()
-        captureSession.addOutput(captureMetadataOutput)
-        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        
-        
-        /// `AVCaptureMetadataOutput` metadata object types.
-        let metadata = [
-            AVMetadataObject.ObjectType.aztec,
-            AVMetadataObject.ObjectType.code128,
-            AVMetadataObject.ObjectType.code39,
-            AVMetadataObject.ObjectType.code39Mod43,
-            AVMetadataObject.ObjectType.code93,
-            AVMetadataObject.ObjectType.dataMatrix,
-            AVMetadataObject.ObjectType.ean13,
-            AVMetadataObject.ObjectType.ean8,
-            AVMetadataObject.ObjectType.face,
-            AVMetadataObject.ObjectType.interleaved2of5,
-            AVMetadataObject.ObjectType.itf14,
-            AVMetadataObject.ObjectType.pdf417,
-            AVMetadataObject.ObjectType.qr,
-            AVMetadataObject.ObjectType.upce
-        ]
-        
-        captureMetadataOutput.metadataObjectTypes = metadata
-
-        
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer)
-        
-        // Start the capture session
-        captureSession.startRunning()
+        // 弹出扫码页面
+        present(vc, animated: true, completion: nil)
     }
     
     
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        for metadataObject in metadataObjects {
-            if let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
-               let stringValue = readableObject.stringValue {
-                
-                print("\(#function) Code is successfully scanned \(stringValue)")
-                
-                // Code is successfully scanned
-                captureSession.stopRunning()
-                // 扫描之后退出详解
-                videoPreviewLayer.removeFromSuperlayer()
-                
-                // Send the result back to JavaScript
-                self.result = stringValue
-                let jsCode = "receiveScanResult('\(stringValue)');"
-                print("\(#function) 调用 js 方法 \(jsCode)")
+    func receiveScanReturn(code: String) {
+        
+        let jsCode = "receiveScanResult('\(code)');"
+        print("\(#function) 调用 js 方法 \(jsCode)")
 
-                webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
-                    if let error = error {
-                        print("Error calling JavaScript function: \(error)")
-                    } else if let result = result {
-                        print("JavaScript result: \(result)")
-                    }
-                })
-    
+        webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
+            if let error = error {
+                print("Error calling JavaScript function: \(error)")
+            } else if let result = result {
+                print("JavaScript result: \(result)")
             }
-        }
+        })
     }
-
-    
-
     
     
 //    override func viewDidLoad() {
@@ -255,6 +138,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
 //        let request = URLRequest(url: url!)
 //        webView.load(request)
 //    }
+    
+    
 }
 
 

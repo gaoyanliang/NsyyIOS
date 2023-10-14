@@ -86,9 +86,6 @@ public class ScannerVC: UIViewController {
         cameraViewController.startCapturing()
     }
     
-    
-    
-    
 }
 
 
@@ -108,19 +105,13 @@ extension ScannerVC{
         headerViewController.delegate = self
         
         cameraViewController.metadata = metadata
-        
         cameraViewController.animationStyle = animationStyle
-        
         cameraViewController.delegate = self
-        
         add(cameraViewController)
         
         if navigationController == nil {
-            
             add(headerViewController)
-            
             view.bringSubviewToFront(headerViewController.view)
-            
         }
         
         
@@ -158,12 +149,10 @@ extension ScannerVC{
 // MARK: - HeaderViewControllerDelegate
 extension ScannerVC:HeaderViewControllerDelegate{
     
-    
     /// 点击关闭
     public func didClickedCloseButton() {
-        
+        print("\(#function) 关闭扫描")
         dismiss(animated: true, completion: nil)
-        
     }
     
 }

@@ -40,6 +40,16 @@ public class HeaderVC: UIViewController {
         
         super.init(nibName: nibNameOrNil, bundle: bundle)
         
+        
+        var statusHeight: CGFloat
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
+            statusHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            statusHeight = UIApplication.shared.statusBarFrame.height
+        }
+        
+        
         view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: statusHeight + navigationBar.frame.height)
         
     }
@@ -59,7 +69,7 @@ public class HeaderVC: UIViewController {
     }
     
     @IBAction func closeBtnClick(_ sender: Any) {
-        
+        print("\(#function) 触发关闭")
         delegate?.didClickedCloseButton()
     }
     

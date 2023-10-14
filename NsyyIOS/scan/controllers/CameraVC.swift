@@ -106,22 +106,18 @@ public class CameraVC: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-        
     }
     
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         scanView.startAnimation()
         
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         scanView.stopAnimation()
         
     }
@@ -130,7 +126,7 @@ public class CameraVC: UIViewController {
 
 
 
-// MARK: - CustomMethod
+// MARK: - 相机设置
 extension CameraVC {
     
     func setupUI() {
@@ -138,9 +134,7 @@ extension CameraVC {
         view.backgroundColor = .black
         
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
         videoPreviewLayer?.videoGravity = .resizeAspectFill
-        
         videoPreviewLayer?.frame = view.layer.bounds
         
         guard let videoPreviewLayer = videoPreviewLayer else {
@@ -150,48 +144,44 @@ extension CameraVC {
         view.layer.addSublayer(videoPreviewLayer)
         
         scanView.scanAnimationImage = animationImage
-        
         scanView.scanAnimationStyle = animationStyle
-        
         scanView.cornerColor = scannerColor
         
         view.addSubview(scanView)
         
         setupCamera()
-        
         setupTorch()
-        
     }
     
     
     /// 创建手电筒按钮
     func setupTorch() {
-        
         let buttonSize:CGFloat = 37
         
+        var statusHeight: CGFloat
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
+            statusHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            statusHeight = UIApplication.shared.statusBarFrame.height
+        }
+        
         flashBtn.frame = CGRect(x: screenWidth - 20 - buttonSize, y: statusHeight + 44 + 20, width: buttonSize, height: buttonSize)
-        
         flashBtn.addTarget(self, action: #selector(flashBtnClick), for: .touchUpInside)
-        
         flashBtn.isHidden = true
         
         view.addSubview(flashBtn)
-        
         view.bringSubviewToFront(flashBtn)
         
         torchMode = .off
-        
     }
     
     
     
     // 设置相机
     func setupCamera() {
-        
         setupSessionInput()
-        
         setupSessionOutput()
-        
     }
     
     
@@ -208,7 +198,6 @@ extension CameraVC {
         
         do {
             let newInput = try AVCaptureDeviceInput(device: device)
-            
             captureSession.beginConfiguration()
             
             if let currentInput = captureSession.inputs.first as? AVCaptureDeviceInput {
@@ -216,7 +205,6 @@ extension CameraVC {
             }
             
             captureSession.addInput(newInput)
-            
             captureSession.commitConfiguration()
             
         }catch{
@@ -233,15 +221,11 @@ extension CameraVC {
         }
         
         let videoDataOutput = AVCaptureVideoDataOutput()
-        
         videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue.main)
-        
         captureSession.addOutput(videoDataOutput)
         
         let output = AVCaptureMetadataOutput()
-        
         captureSession.addOutput(output)
-        
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         
         for type in metadata {
@@ -251,9 +235,7 @@ extension CameraVC {
         }
         
         output.metadataObjectTypes = metadata
-        
         videoPreviewLayer?.session = captureSession
-        
         view.setNeedsLayout()
     }
     
@@ -261,27 +243,20 @@ extension CameraVC {
     
     /// 开始扫描
     func startCapturing() {
-        
         guard !Platform.isSimulator else {
             return
         }
-        
         captureSession.startRunning()
-        
     }
     
     
     /// 停止扫描
     func stopCapturing() {
-        
         guard !Platform.isSimulator else {
             return
         }
-        
         captureSession.stopRunning()
-        
     }
-    
     
 }
 
@@ -294,11 +269,12 @@ extension CameraVC:AVCaptureMetadataOutputObjectsDelegate{
     public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         stopCapturing()
+        print("\(#function) 扫描成功")
         
         guard let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject else {
             return
         }
-        
+        print("\(#function) 扫描结果是： \(String(describing: object.stringValue))")
         delegate?.didOutput(object.stringValue ?? "")
         
     }
@@ -322,17 +298,13 @@ extension CameraVC:AVCaptureVideoDataOutputSampleBufferDelegate{
         
         // 判断光线强弱
         if brightnessValue < -1.0 {
-            
             flashBtn.isHidden = false
-            
         }else{
-            
             if torchMode == .on{
                 flashBtn.isHidden = false
             }else{
                 flashBtn.isHidden = true
             }
-            
         }
         
     }
@@ -344,9 +316,7 @@ extension CameraVC:AVCaptureVideoDataOutputSampleBufferDelegate{
 extension CameraVC{
     
     @objc func flashBtnClick(sender:UIButton) {
-        
         torchMode = torchMode.next
-        
     }
     
 }
