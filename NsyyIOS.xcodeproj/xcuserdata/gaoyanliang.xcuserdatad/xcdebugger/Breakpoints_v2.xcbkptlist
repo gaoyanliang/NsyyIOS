@@ -1321,7 +1321,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FA13DD0B-7B0A-4D55-BF4B-A2A20E8C17A3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NsyyIOS/AppDelegate.swift"
@@ -1369,7 +1369,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7B15720F-DA6D-4B56-B888-C0382E5973C3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NsyyIOS/AppDelegate.swift"
@@ -1668,54 +1668,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F51600B-CD1B-4FA8-B56F-137DCF2BE620"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/NsyyViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2F51600B-CD1B-4FA8-B56F-137DCF2BE620 - 7c0288057ed8acd6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyViewController.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "2168">
-               </Location>
-               <Location
-                  uuid = "2F51600B-CD1B-4FA8-B56F-137DCF2BE620 - 7c0288057ed8ac18"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyViewController.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "2168">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AABD7164-2594-4CE3-83A4-7B19B1CB5A5E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1726,6 +1678,85 @@
             startingLineNumber = "70"
             endingLineNumber = "70"
             landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB78389C-06C0-43A0-8A67-AF4EB397783D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/NsyyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BB78389C-06C0-43A0-8A67-AF4EB397783D - 739bad4c7a8d9296"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyViewController.metadataOutput(_: __C.AVCaptureMetadataOutput, didOutput: Swift.Array&lt;__C.AVMetadataObject&gt;, from: __C.AVCaptureConnection) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "5436">
+               </Location>
+               <Location
+                  uuid = "BB78389C-06C0-43A0-8A67-AF4EB397783D - 739bad4c7a8d9271"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyViewController.metadataOutput(_: __C.AVCaptureMetadataOutput, didOutput: Swift.Array&lt;__C.AVMetadataObject&gt;, from: __C.AVCaptureConnection) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "6540">
+               </Location>
+               <Location
+                  uuid = "BB78389C-06C0-43A0-8A67-AF4EB397783D - b09ad81a1af5ac59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.metadataOutput(_: __C.AVCaptureMetadataOutput, didOutput: Swift.Array&lt;__C.AVMetadataObject&gt;, from: __C.AVCaptureConnection) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "612">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "805919C3-A01B-4FF6-9881-C7AF7D1BDC9B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/scan/controllers/ScannerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -28,6 +28,20 @@
 		134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B22AC2C63D0057C11D /* NsyyWebServer.swift */; };
 		134828B52AC2CEC90057C11D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B42AC2CEC90057C11D /* Notification.swift */; };
 		134828B72AC2D5950057C11D /* ReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B62AC2D5950057C11D /* ReturnData.swift */; };
+		13784B512ADA757300DF4700 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B502ADA757300DF4700 /* Common.swift */; };
+		13784B542ADA774C00DF4700 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B532ADA774C00DF4700 /* Platform.swift */; };
+		13784B562ADA776F00DF4700 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B552ADA776F00DF4700 /* UIImage+Extensions.swift */; };
+		13784B582ADA77B200DF4700 /* AVMetadataObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B572ADA77B200DF4700 /* AVMetadataObject+Extensions.swift */; };
+		13784B5A2ADA77D600DF4700 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B592ADA77D600DF4700 /* UIViewController+Extensions.swift */; };
+		13784B5C2ADA77EF00DF4700 /* ScanAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B5B2ADA77EF00DF4700 /* ScanAnimation.swift */; };
+		13784B612ADA783500DF4700 /* TorchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B602ADA783500DF4700 /* TorchMode.swift */; };
+		13784B632ADA785300DF4700 /* CornerLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B622ADA785300DF4700 /* CornerLocation.swift */; };
+		13784B652ADA786B00DF4700 /* ScanAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B642ADA786B00DF4700 /* ScanAnimationStyle.swift */; };
+		13784B672ADA789700DF4700 /* HeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B662ADA789700DF4700 /* HeaderVC.swift */; };
+		13784B692ADA793900DF4700 /* HeaderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13784B682ADA793900DF4700 /* HeaderVC.xib */; };
+		13784B6B2ADA795A00DF4700 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B6A2ADA795A00DF4700 /* CameraVC.swift */; };
+		13784B6D2ADA7A8C00DF4700 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B6C2ADA7A8C00DF4700 /* ScannerVC.swift */; };
+		13784B6F2ADA7AB100DF4700 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B6E2ADA7AB100DF4700 /* ScanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +86,20 @@
 		134828B22AC2C63D0057C11D /* NsyyWebServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyWebServer.swift; sourceTree = "<group>"; };
 		134828B42AC2CEC90057C11D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		134828B62AC2D5950057C11D /* ReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnData.swift; sourceTree = "<group>"; };
+		13784B502ADA757300DF4700 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		13784B532ADA774C00DF4700 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		13784B552ADA776F00DF4700 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		13784B572ADA77B200DF4700 /* AVMetadataObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVMetadataObject+Extensions.swift"; sourceTree = "<group>"; };
+		13784B592ADA77D600DF4700 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		13784B5B2ADA77EF00DF4700 /* ScanAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAnimation.swift; sourceTree = "<group>"; };
+		13784B602ADA783500DF4700 /* TorchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchMode.swift; sourceTree = "<group>"; };
+		13784B622ADA785300DF4700 /* CornerLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLocation.swift; sourceTree = "<group>"; };
+		13784B642ADA786B00DF4700 /* ScanAnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAnimationStyle.swift; sourceTree = "<group>"; };
+		13784B662ADA789700DF4700 /* HeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderVC.swift; sourceTree = "<group>"; };
+		13784B682ADA793900DF4700 /* HeaderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderVC.xib; sourceTree = "<group>"; };
+		13784B6A2ADA795A00DF4700 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		13784B6C2ADA7A8C00DF4700 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		13784B6E2ADA7AB100DF4700 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +131,11 @@
 		1323D32E2AD802EA00C8F03C /* scan */ = {
 			isa = PBXGroup;
 			children = (
+				13784B5F2ADA782500DF4700 /* views */,
+				13784B5E2ADA781F00DF4700 /* controllers */,
+				13784B5D2ADA781600DF4700 /* model */,
+				13784B522ADA773B00DF4700 /* extensions */,
+				13784B4F2ADA755600DF4700 /* common */,
 				1323D3452AD8086B00C8F03C /* QRScanViewController.swift */,
 			);
 			path = scan;
@@ -200,6 +233,55 @@
 				1332BCDD2AD2B0900097C92B /* BackgroundLocationManager.swift */,
 			);
 			path = location;
+			sourceTree = "<group>";
+		};
+		13784B4F2ADA755600DF4700 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				13784B502ADA757300DF4700 /* Common.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		13784B522ADA773B00DF4700 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				13784B532ADA774C00DF4700 /* Platform.swift */,
+				13784B552ADA776F00DF4700 /* UIImage+Extensions.swift */,
+				13784B572ADA77B200DF4700 /* AVMetadataObject+Extensions.swift */,
+				13784B592ADA77D600DF4700 /* UIViewController+Extensions.swift */,
+				13784B5B2ADA77EF00DF4700 /* ScanAnimation.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		13784B5D2ADA781600DF4700 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				13784B602ADA783500DF4700 /* TorchMode.swift */,
+				13784B622ADA785300DF4700 /* CornerLocation.swift */,
+				13784B642ADA786B00DF4700 /* ScanAnimationStyle.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		13784B5E2ADA781F00DF4700 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13784B682ADA793900DF4700 /* HeaderVC.xib */,
+				13784B662ADA789700DF4700 /* HeaderVC.swift */,
+				13784B6A2ADA795A00DF4700 /* CameraVC.swift */,
+				13784B6C2ADA7A8C00DF4700 /* ScannerVC.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		13784B5F2ADA782500DF4700 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				13784B6E2ADA7AB100DF4700 /* ScanView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +397,7 @@
 				1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */,
 				1337D89D2ABD945100A8F46D /* LaunchScreen.storyboard in Resources */,
 				1337D89A2ABD945100A8F46D /* Assets.xcassets in Resources */,
+				13784B692ADA793900DF4700 /* HeaderVC.xib in Resources */,
 				1337D8982ABD945000A8F46D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,19 +423,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13784B542ADA774C00DF4700 /* Platform.swift in Sources */,
+				13784B5C2ADA77EF00DF4700 /* ScanAnimation.swift in Sources */,
+				13784B582ADA77B200DF4700 /* AVMetadataObject+Extensions.swift in Sources */,
 				1332BCDC2AD2AFCC0097C92B /* SignificantLocationManager.swift in Sources */,
 				1337D8952ABD945000A8F46D /* NsyyViewController.swift in Sources */,
+				13784B5A2ADA77D600DF4700 /* UIViewController+Extensions.swift in Sources */,
+				13784B672ADA789700DF4700 /* HeaderVC.swift in Sources */,
 				1337D8912ABD945000A8F46D /* AppDelegate.swift in Sources */,
 				1332BCDE2AD2B0900097C92B /* BackgroundLocationManager.swift in Sources */,
 				132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */,
+				13784B652ADA786B00DF4700 /* ScanAnimationStyle.swift in Sources */,
 				1323D3462AD8086B00C8F03C /* QRScanViewController.swift in Sources */,
+				13784B512ADA757300DF4700 /* Common.swift in Sources */,
 				134828B72AC2D5950057C11D /* ReturnData.swift in Sources */,
 				1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */,
+				13784B6D2ADA7A8C00DF4700 /* ScannerVC.swift in Sources */,
 				1332BCDA2AD2AF410097C92B /* BGTask.swift in Sources */,
 				134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */,
+				13784B632ADA785300DF4700 /* CornerLocation.swift in Sources */,
+				13784B6F2ADA7AB100DF4700 /* ScanView.swift in Sources */,
+				13784B612ADA783500DF4700 /* TorchMode.swift in Sources */,
+				13784B6B2ADA795A00DF4700 /* CameraVC.swift in Sources */,
 				1337D8932ABD945000A8F46D /* SceneDelegate.swift in Sources */,
 				1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */,
 				134828B52AC2CEC90057C11D /* Notification.swift in Sources */,
+				13784B562ADA776F00DF4700 /* UIImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

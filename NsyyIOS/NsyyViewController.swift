@@ -12,9 +12,9 @@ import Vapor
 import AVFoundation
 
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
-class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler, AVCaptureMetadataOutputObjectsDelegate {
+class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMetadataOutputObjectsDelegate {
     
-    //private let urlString: String = "http://localhost:5173/"
+    // 测试扫码功能
     private let urlString: String = "https://dnswc2-vue-demo.site.laf.dev/"
 
     // 南石医院 OA
@@ -30,22 +30,36 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
     let captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
-    
     var webView: WKWebView!
+    var result: String!
     
-    var result: NSString!
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 适当的时机 移除 WKScriptMessageHandler 防止引用循环
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: "scanCode")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Set up the WKUserContentController to handle JavaScript messages
         let contentController = WKUserContentController()
         contentController.add(self, name: "scanCode")
-
+        
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
+        
+        
+        webConfiguration.preferences = WKPreferences()
+        webConfiguration.preferences.minimumFontSize = 0
+        webConfiguration.preferences.javaScriptEnabled = true
+        webConfiguration.processPool = WKProcessPool()
+        webConfiguration.preferences.javaScriptCanOpenWindowsAutomatically = true
 
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+
+        webView = WKWebView(frame: view.bounds, configuration: webConfiguration)
+        webView.navigationDelegate = self
         webView.uiDelegate = self
         view = webView
         
@@ -54,48 +68,69 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
         webView.load(request)
     }
     
-    // Implement the WKScriptMessageHandler method to handle JavaScript messages
-    @objc(userContentController:didReceiveScriptMessage:) func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
-        print("\(#function) 被调用 \(message.name) \(message.description)")
-        
+
         if message.name == "scanCode" {
             // Call your code scanning function here
             // This function should communicate with your code scanning library
             // and then send the result back to JavaScript
+            print("\(#function) 执行 \(message.name)")
             scanCodeAndSendResultToJS()
+            //btnScanClick()
         }
     }
+    
+//    func btnScanClick() {
+//        
+//        let vc = ScannerVC()
+//        //默认(push)
+//        vc.setupScanner { (code) in
+//            
+//            print(code)
+//            
+//            self.receiveScanReturn(code: code)
+//            
+//            // 扫描成功，关闭扫描页面
+//            self.dismiss(animated: true, completion: nil)
+//        }
+//        
+//        // 弹出扫码页面
+//        present(vc, animated: true, completion: nil)
+//        
+////        let vc = QRScanViewController()
+////        vc.delegate = self
+////        vc.hidesBottomBarWhenPushed = true
+////        show(vc, sender: nil)
+//    }
+    
+    
+//    func receiveScanReturn(code: String) {
+//        
+//        let jsCode = "receiveScanResult('\(code)');"
+//        print("\(#function) 调用 js 方法 \(jsCode)")
+//
+//        webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
+//            if let error = error {
+//                print("Error calling JavaScript function: \(error)")
+//            } else if let result = result {
+//                print("JavaScript result: \(result)")
+//            }
+//        })
+//    }
+//    
     
     func scanCodeAndSendResultToJS() {
+        print("\(#function) 开始扫码")
+        setupScanner()
         
-        var vc = QRScanViewController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.delegate = self
-        self.showDetailViewController(vc, sender: nil)
-        
-        print("\(#function) 被调用")
-//        setupScanner()
-//        
-//        // Implement your code scanning logic here
-//        guard let videoPreviewLayer = videoPreviewLayer else { return }
-//
-//        let captureMetadataOutput = captureSession.outputs.first as? AVCaptureMetadataOutput
-//        captureMetadataOutput?.rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: videoPreviewLayer.bounds)
-//
-//        captureSession.startRunning()
-    }
-    
-    func qrScanResult(_ result: String, viewController qrScanVC: QRScanViewController) {
-        if let navigationController = qrScanVC.navigationController {
-            navigationController.popViewController(animated: false)
-            
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NsyyViewController") as? NsyyViewController {
-                vc.result = result as NSString
-                vc.hidesBottomBarWhenPushed = true
-                show(vc, sender: nil)
-            }
-        }
+        // Implement your code scanning logic here
+        guard let videoPreviewLayer = videoPreviewLayer else { return }
+
+        let captureMetadataOutput = captureSession.outputs.first as? AVCaptureMetadataOutput
+        captureMetadataOutput?.rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: videoPreviewLayer.bounds)
+
+        captureSession.startRunning()
     }
     
     
@@ -108,6 +143,13 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
         }
         
         do {
+            // 在添加新的 input 之前，先删除旧的
+            if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+                for input in inputs {
+                    captureSession.removeInput(input)
+                }
+            }
+            
             let input = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(input)
         } catch {
@@ -115,42 +157,34 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
             return
         }
     
+        
+        // 在添加新的 output 之前，先删除旧的
+        if let outputs = captureSession.outputs as? [AVCaptureMetadataOutput] {
+            for output in outputs {
+                captureSession.removeOutput(output)
+            }
+        }
         let captureMetadataOutput = AVCaptureMetadataOutput()
         captureSession.addOutput(captureMetadataOutput)
         captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         
         
         /// `AVCaptureMetadataOutput` metadata object types.
-        var metadata = [
-            
+        let metadata = [
             AVMetadataObject.ObjectType.aztec,
-            
             AVMetadataObject.ObjectType.code128,
-            
             AVMetadataObject.ObjectType.code39,
-            
             AVMetadataObject.ObjectType.code39Mod43,
-            
             AVMetadataObject.ObjectType.code93,
-            
             AVMetadataObject.ObjectType.dataMatrix,
-            
             AVMetadataObject.ObjectType.ean13,
-            
             AVMetadataObject.ObjectType.ean8,
-            
             AVMetadataObject.ObjectType.face,
-            
             AVMetadataObject.ObjectType.interleaved2of5,
-            
             AVMetadataObject.ObjectType.itf14,
-            
             AVMetadataObject.ObjectType.pdf417,
-            
             AVMetadataObject.ObjectType.qr,
-            
             AVMetadataObject.ObjectType.upce
-            
         ]
         
         captureMetadataOutput.metadataObjectTypes = metadata
@@ -175,18 +209,28 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
                 
                 // Code is successfully scanned
                 captureSession.stopRunning()
+                // 扫描之后退出详解
+                videoPreviewLayer.removeFromSuperlayer()
                 
                 // Send the result back to JavaScript
-                let jsCode = "receiveScanResult('\(stringValue)')"
-                webView.evaluateJavaScript(jsCode, completionHandler: nil)
-                
-                navigationController?.popViewController(animated: true)
+                self.result = stringValue
+                let jsCode = "receiveScanResult('\(stringValue)');"
+                print("\(#function) 调用 js 方法 \(jsCode)")
+
+                webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
+                    if let error = error {
+                        print("Error calling JavaScript function: \(error)")
+                    } else if let result = result {
+                        print("JavaScript result: \(result)")
+                    }
+                })
+    
             }
         }
     }
+
     
-    
-    
+
     
     
 //    override func viewDidLoad() {
@@ -214,9 +258,9 @@ class NsyyViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler
 }
 
 
-// web view 页面加载状态响应
+// MARK: - web view 页面加载状态响应
 extension NsyyViewController: WKNavigationDelegate {
-    
+
     // 页面开始加载时调用（开始请求服务器，并加载页面）
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!){
         print("\(#function) 网页开始加载...\(String(describing: webView.url))")
@@ -231,9 +275,45 @@ extension NsyyViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("\(#function) 网页加载成功 🎉")
     }
-
+    
     // 页面加载失败时调用
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         print("\(#function) 网页加载失败: \(error.localizedDescription)")
     }
+}
+
+
+// MARK: - WKUIDelegate javascript alert  https://www.jianshu.com/p/e4c274248a78
+extension NsyyViewController: WKUIDelegate {
+    
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确认", style: .default) { _ in
+            completionHandler()
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "取消", style: .cancel) { _ in
+            completionHandler(false)
+        })
+        alertController.addAction(UIAlertAction(title: "确认", style: .default) { _ in
+            completionHandler(true)
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alertController = UIAlertController(title: prompt, message: "", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.text = defaultText
+        }
+        alertController.addAction(UIAlertAction(title: "完成", style: .default) { _ in
+            completionHandler(alertController.textFields?.first?.text ?? "")
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }

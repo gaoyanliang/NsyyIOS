@@ -9,20 +9,36 @@ import UIKit
 import AVFoundation
 
 class QRScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, CAAnimationDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    // 输入输出中间桥梁
     var session: AVCaptureSession?
     var layer: AVCaptureVideoPreviewLayer?
     var maskView: UIView?
     var scanLineView: UIImageView?
+    
     var orginalStyle: UIStatusBarStyle = .default
+    
     var hud: ProgressView?
     var isFirstAppear: Bool = true
+    
+    // 提示将二维码放入框内label
     var textLabel: UILabel?
+    // 手电筒按钮
     var torchBtn: UIButton?
+    // 轻触照亮 / 关闭
     var tipLabel: UILabel?
+    // 光线第一次变暗
     var isFirstBecomeDark: Bool = true
+    // 最后亮度值
     var lastBrightnessValue: Float = 0.0
+    
     var delegate: AVCaptureMetadataOutputObjectsDelegate?
+    
+    // 屏幕尺寸
+    var screenHeight: Double = 0.0
+    var screenWidth: Double = 0.0
 
+    // TODO: 是否使用 dealloc
     func dealloc() {
         NotificationCenter.default.removeObserver(self)
         session?.stopRunning()
@@ -43,6 +59,7 @@ class QRScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if let scanLineView = scanLineView {
             scanLineView.removeFromSuperview()
             self.scanLineView = nil
@@ -71,8 +88,16 @@ class QRScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         navigationController?.isNavigationBarHidden = false
     }
 
+    
+    // MARK: 初始化
     func initBaseUI() {
+        
+        self.screenWidth = UIScreen.main.bounds.size.width
+        self.screenHeight = UIScreen.main.bounds.size.height
+        
+        
         let btn = UIButton(type: .custom)
+        
         btn.frame = CGRect(x: 15, y: 27, width: 30, height: 30)
         btn.setImage(UIImage(named: "ic_back.png"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
@@ -119,7 +144,7 @@ class QRScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.addSubview(maskView!)
         view.sendSubviewToBack(maskView!)
 
-        let pathWidth = UIScreen.main.bounds.size.width - 100
+        let pathWidth = UIScreen.main.bounds.size.width - 150
         let orginY = (UIScreen.main.bounds.size.height - pathWidth) / 2 - 50
         let imageView = UIImageView(image: UIImage(named: "ic_scanBg.png"))
         imageView.frame = CGRect(x: 50, y: orginY, width: pathWidth, height: pathWidth)
@@ -315,15 +340,25 @@ class QRScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     // 扫描结果回调
     func captureOutput(_ captureOutput: AVCaptureOutput, didOutputMetadataObjects metadataObjects: [Any], fromConnection connection: AVCaptureConnection) {
-        if metadataObjects.count > 0 {
-            session?.stopRunning()
-            if let metaDataObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject {
-                switchTorch(false)
-                if let delegate = delegate, delegate.responds(to: #selector(qrScanResult(viewController:))) {
-                    delegate.perform(#selector(qrScanResult(viewController:)), with: metaDataObject.stringValue, with: self)
-                }
+        
+        for metadataObject in metadataObjects {
+            if let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
+               let stringValue = readableObject.stringValue {
+                
+                print("\(#function) Code is successfully scanned \(stringValue)")
+                
             }
         }
+        
+//        if metadataObjects.count > 0 {
+//            session?.stopRunning()
+//            if let metaDataObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject {
+//                switchTorch(false)
+//                if let delegate = delegate, delegate.responds(to: #selector(qrScanResult(viewController:))) {
+//                    delegate.perform(#selector(qrScanResult(viewController:)), with: metaDataObject.stringValue, with: self)
+//                }
+//            }
+//        }
     }
     
     @objc func switchTorchClick(_ btn: UIButton) {
