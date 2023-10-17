@@ -20,18 +20,16 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
     // 南石医院 OA
     //private let urlString: String = "http://oa.nsyy.com.cn:6060"
     
+    // private let urlString: String = "http://192.168.124.12:6060/"
+    
     // 南石医院 - 医废
     //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=13#/"
 
     // 南石医院 - 医废 测试
     //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=013#/"
     
-    // Create an AVCaptureSession and AVCaptureVideoPreviewLayer
-    let captureSession = AVCaptureSession()
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer!
-    
     var webView: WKWebView!
-    var result: String!
+    var vc: QQScanViewController!
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,13 +48,11 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
         
-        
         webConfiguration.preferences = WKPreferences()
         webConfiguration.preferences.minimumFontSize = 0
         webConfiguration.preferences.javaScriptEnabled = true
         webConfiguration.processPool = WKProcessPool()
         webConfiguration.preferences.javaScriptCanOpenWindowsAutomatically = true
-
 
         webView = WKWebView(frame: view.bounds, configuration: webConfiguration)
         webView.navigationDelegate = self
@@ -68,48 +64,40 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         webView.load(request)
     }
     
-
+    // 全屏展示
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = view.bounds
     }
 
+    // MARK: JS 调用 swift
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        
         if message.name == "scanCode" {
-            // Call your code scanning function here
-            // This function should communicate with your code scanning library
-            // and then send the result back to JavaScript
-            
             print("\(#function) 执行 \(message.name)")
-            scanCodeAndSendResultToJS()
+            qqStyle()
         }
     }
     
-    func scanCodeAndSendResultToJS() {
-        print("\(#function) 开始扫码")
+    // MARK: - ---模仿qq扫码界面---------
+    func qqStyle() {
+        print("qqStyle")
+
+        vc = QQScanViewController()
+        var style = LBXScanViewStyle()
+        style.animationImage = UIImage(named: "qrcode_scan_light_green")
+        vc.scanStyle = style
+        vc.scanResultDelegate = self
         
-        let vc = ScannerVC()
-        //默认(push)
-        vc.setupScanner { (code) in
-            
-            print(code)
-            
-            self.receiveScanReturn(code: code)
-            
-            // 扫描成功，关闭扫描页面
-            self.dismiss(animated: true, completion: nil)
-        }
-        
-        // 弹出扫码页面
         present(vc, animated: true, completion: nil)
     }
     
     
     func receiveScanReturn(code: String) {
-        
         let jsCode = "receiveScanResult('\(code)');"
         print("\(#function) 调用 js 方法 \(jsCode)")
+        
+        vc.dismiss(animated: true, completion: nil)
+        
 
         webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
             if let error = error {
@@ -120,6 +108,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         })
     }
     
+
+
     
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -205,4 +195,16 @@ extension NsyyViewController: WKUIDelegate {
         present(alertController, animated: true, completion: nil)
     }
     
+}
+
+// MARK: - 处理扫码结果
+extension NsyyViewController: LBXScanViewControllerDelegate {
+    func scanFinished(scanResult: LBXScanResult, error: String?) {
+        print("\(#function) code scan result: \(scanResult)")
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        self.receiveScanReturn(code: scanResult.strScanned!)
+    
+    }
 }

@@ -170,6 +170,13 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
             if central.state == CBManagerState.poweredOn {
                 print("\(#function) 蓝牙已开启!")
                 startScan()
+                
+                // 十秒时候关闭扫描
+                let time = DispatchTime.now() + DispatchTimeInterval.seconds(15)
+                DispatchQueue.main.asyncAfter(deadline: time){
+                    self.stopScan()
+                }
+                
             } else {
                 if central.state == CBManagerState.poweredOff {
                     print("\(#function) 请打开系统蓝牙开关")
