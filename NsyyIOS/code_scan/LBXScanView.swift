@@ -159,6 +159,7 @@ open class LBXScanView: UIView {
 //        // 执行绘画
 //        context.strokePath()
         
+        
         if viewStyle.isNeedShowRetangle {
             // 中间画矩形(正方形)
             context.setStrokeColor(viewStyle.colorRetangleLine.cgColor)
@@ -304,49 +305,7 @@ open class LBXScanView: UIView {
 
         return sizeRetangle
     }
-    
-//    func deviceStartReadying(readyStr: String) {
-//        let XRetangleLeft = viewStyle.xScanRetangleOffset
-//        let sizeRetangle = getRetangeSize()
-//
-//        // 扫码区域Y轴最小坐标
-//        let YMinRetangle = frame.size.height / 2.0 - sizeRetangle.height / 2.0 - viewStyle.centerUpOffset + 50
-//
-//        // 设备启动状态提示
-//        if activityView == nil {
-//            activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-//
-//            activityView?.center = CGPoint(x: XRetangleLeft + sizeRetangle.width / 2 - 50, y: YMinRetangle + sizeRetangle.height / 2)
-//            activityView?.style = UIActivityIndicatorView.Style.whiteLarge
-//
-//            addSubview(activityView!)
-//
-//            let labelReadyRect = CGRect(x: activityView!.frame.origin.x + activityView!.frame.size.width + 10,
-//                                        y: activityView!.frame.origin.y,
-//                                        width: 100,
-//                                        height: 30)
-//            labelReadying = UILabel(frame: labelReadyRect)
-//            labelReadying?.text = readyStr
-//            labelReadying?.backgroundColor = UIColor.clear
-//            labelReadying?.textColor = UIColor.white
-//            labelReadying?.font = UIFont.systemFont(ofSize: 18.0)
-//            addSubview(labelReadying!)
-//        }
-//
-//        addSubview(labelReadying!)
-//        activityView?.startAnimating()
-//    }
-//    
-//    func deviceStopReadying() {
-//        if activityView != nil {
-//            activityView?.stopAnimating()
-//            activityView?.removeFromSuperview()
-//            labelReadying?.removeFromSuperview()
-//
-//            activityView = nil
-//            labelReadying = nil
-//        }
-//    }
+
 
 }
 
@@ -355,10 +314,6 @@ public extension LBXScanView {
     
     /// 获取扫描动画的Rect
     func getScanRectForAnimation() -> CGRect {
-//        let XRetangleLeft = viewStyle.xScanRetangleOffset
-//        var sizeRetangle = CGSize(width: frame.size.width - XRetangleLeft * 2,
-//                                  height: frame.size.width - XRetangleLeft * 2)        
-        
         let XRetangleLeft = viewStyle.xScanRetangleOffset
         var sizeRetangle = CGSize(width: frame.size.width - viewStyle.xScanRetangleOffset * 2,
                                   height: frame.size.width - viewStyle.xScanRetangleOffset * 2)

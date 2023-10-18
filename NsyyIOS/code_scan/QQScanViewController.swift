@@ -33,7 +33,10 @@ class QQScanViewController: LBXScanViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //需要识别后的图像
+        setNeedCodeImage(needCodeImg: true)
+        
         // 根据设备调整扫描框位置 & 大小
         if UIDevice.current.userInterfaceIdiom == .pad {
             scanStyle!.xScanRetangleOffset = 160
@@ -44,12 +47,10 @@ class QQScanViewController: LBXScanViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
         super.viewDidAppear(animated)
-
         drawBottomItems()
-        
     }
+    
 
     func drawBottomItems() {
         if (bottomItemsView != nil) {
@@ -125,20 +126,6 @@ class QQScanViewController: LBXScanViewController {
             btnFlash!.setImage(UIImage(named: "qrcode_scan_btn_flash_nor"), for:UIControl.State.normal)
         }
     }
-    
-    // 打开相册
-    @objc func openPhotoAlbum() {
-        LBXPermissions.authorizePhotoWith { [weak self] _ in
-            
-            print("\(#function) 打开相册")
-            let picker = UIImagePickerController()
-            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
-            picker.delegate = self
-            picker.allowsEditing = true
-            self?.present(picker, animated: true, completion: nil)
-        }
-    }
-    
     
 
 }

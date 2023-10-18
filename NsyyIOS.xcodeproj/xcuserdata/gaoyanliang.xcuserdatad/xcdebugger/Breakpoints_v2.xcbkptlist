@@ -23,70 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D47DA16B-EDFD-4010-B0BE-6E603DE6CDD7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/code_scan/LBXScanViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "handleCodeResult(arrayResult:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D47DA16B-EDFD-4010-B0BE-6E603DE6CDD7 - 9464350fa701ede1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.LBXScanViewController.handleCodeResult(arrayResult: Swift.Array&lt;NsyyIOS.LBXScanResult&gt;) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/code_scan/LBXScanViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "1604">
-               </Location>
-               <Location
-                  uuid = "D47DA16B-EDFD-4010-B0BE-6E603DE6CDD7 - 9464350fa701ede1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.LBXScanViewController.handleCodeResult(arrayResult: Swift.Array&lt;NsyyIOS.LBXScanResult&gt;) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/code_scan/LBXScanViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "2424">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4474B5B3-7927-4CA9-91DC-0F5DD1A634FA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/NsyyViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "scanFinished(scanResult:error:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3EE2116C-F416-4754-901B-8C99331C5F7D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -94,40 +30,8 @@
             filePath = "NsyyIOS/NsyyViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "scanFinished(scanResult:error:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "55F84197-9FCA-4B24-A0E3-274B55155C40"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/NsyyViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "receiveScanReturn(code:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EE8DB65E-2FEC-4570-BC22-138FD3834238"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/NsyyViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "scanFinished(scanResult:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,14 +40,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1EE96B1C-37B7-4E89-8F6F-CEC867935B7D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NsyyIOS/NsyyViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "scanFinished(scanResult:error:)"
             landmarkType = "7">
             <Locations>
@@ -207,6 +111,21 @@
                   endingLineNumber = "203"
                   offsetFromSymbolStart = "2304">
                </Location>
+               <Location
+                  uuid = "1EE96B1C-37B7-4E89-8F6F-CEC867935B7D - 7b853385d6964c14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyViewController.scanFinished(scanResult: NsyyIOS.LBXScanResult, error: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "1924">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -220,13 +139,13 @@
             filePath = "NsyyIOS/NsyyViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "userContentController(_:didReceive:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed891af"
+                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed8977c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -236,12 +155,12 @@
                   urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "560">
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "1000">
                </Location>
                <Location
-                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed891ce"
+                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed8977c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -251,12 +170,12 @@
                   urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
                   offsetFromSymbolStart = "620">
                </Location>
                <Location
-                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed89265"
+                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed897be"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -266,12 +185,12 @@
                   urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
                   offsetFromSymbolStart = "620">
                </Location>
                <Location
-                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed8922b"
+                  uuid = "540A3F03-3CE5-4CC6-B510-2450BE506052 - 7c0288057ed897be"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -281,147 +200,9 @@
                   urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "620">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NsyyIOS/NsyyViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "receiveScanReturn(code:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 440c4df5e9a901bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "2576">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b8283"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "672">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b8260"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "728">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b8260"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "1080">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b83c5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "728">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b83c5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "1080">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b8207"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "728">
-               </Location>
-               <Location
-                  uuid = "726B19B4-9A6C-4065-A18B-1DCC7CCA5081 - 8ea75e14163b8207"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
-                  moduleName = "NsyyIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "1080">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "124">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -430,14 +211,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "288B8AD0-C2DD-42BC-A364-66D1A79978AA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NsyyIOS/NsyyViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "receiveScanReturn(code:)"
             landmarkType = "7">
             <Locations>
@@ -501,6 +282,21 @@
                   endingLineNumber = "95"
                   offsetFromSymbolStart = "880">
                </Location>
+               <Location
+                  uuid = "288B8AD0-C2DD-42BC-A364-66D1A79978AA - 440c4df5e9a90084"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NsyyIOS.NsyyViewController.receiveScanReturn(code: Swift.String) -&gt; ()"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/NsyyViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "2080">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -530,10 +326,121 @@
             filePath = "NsyyIOS/NsyyViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "webView(_:didStartProvisionalNavigation:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3023E2F4-6B4D-4B62-9132-6394BF57F340"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/code_scan/LBXScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCBACC75-6923-4E84-A411-EA40F87646AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/code_scan/LBXScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "startScan()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EAB60ED-F1C9-45F7-894A-6E5C3984F887"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/code_scan/LBXScanWrapper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "changeScanRect(cropRect:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8717CADE-CAE6-4D9A-B26D-15A67F187D5B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NsyyIOS/code_scan/LBXScanWrapper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
+            landmarkName = "getConcreteCodeRectFromImage(srcCodeImage:codeResult:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8717CADE-CAE6-4D9A-B26D-15A67F187D5B - ae72cc77365201bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static NsyyIOS.LBXScanWrapper.getConcreteCodeRectFromImage(srcCodeImage: __C.UIImage, codeResult: NsyyIOS.LBXScanResult) -&gt; __C.CGRect"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/code_scan/LBXScanWrapper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "493"
+                  endingLineNumber = "493"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "8717CADE-CAE6-4D9A-B26D-15A67F187D5B - ae72cc77365202b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static NsyyIOS.LBXScanWrapper.getConcreteCodeRectFromImage(srcCodeImage: __C.UIImage, codeResult: NsyyIOS.LBXScanResult) -&gt; __C.CGRect"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/code_scan/LBXScanWrapper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "485"
+                  endingLineNumber = "485"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "8717CADE-CAE6-4D9A-B26D-15A67F187D5B - ae72cc7736520354"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static NsyyIOS.LBXScanWrapper.getConcreteCodeRectFromImage(srcCodeImage: __C.UIImage, codeResult: NsyyIOS.LBXScanResult) -&gt; __C.CGRect"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/code_scan/LBXScanWrapper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "484"
+                  endingLineNumber = "484"
+                  offsetFromSymbolStart = "472">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

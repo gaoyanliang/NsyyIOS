@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 实现自动启动 关键API 在注册此接口后，被用户或系统强行退出后，系统依然可以自动启动应用，进行关键位置定位
         manager.startMonitoringSignificantLocationChanges()
         
-        let server = NsyyWebServer(port: 6079)
+        let server = NsyyWebServer(port: 8081)
         server.start()
         
         return true

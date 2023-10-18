@@ -14,11 +14,13 @@ import AVFoundation
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
 class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMetadataOutputObjectsDelegate {
     
+    private let JS_SCAN_CODE: String = "scanCode"
+    
     // 测试扫码功能
-    private let urlString: String = "https://dnswc2-vue-demo.site.laf.dev/"
+    //private let urlString: String = "https://dnswc2-vue-demo.site.laf.dev/"
 
     // 南石医院 OA
-    //private let urlString: String = "http://oa.nsyy.com.cn:6060"
+    private let urlString: String = "http://oa.nsyy.com.cn:6060"
     
     // private let urlString: String = "http://192.168.124.12:6060/"
     
@@ -29,14 +31,9 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
     //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=013#/"
     
     var webView: WKWebView!
+    var refreshControl: UIRefreshControl!
     var vc: QQScanViewController!
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // 适当的时机 移除 WKScriptMessageHandler 防止引用循环
-        webView.configuration.userContentController.removeScriptMessageHandler(forName: "scanCode")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +54,32 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         webView = WKWebView(frame: view.bounds, configuration: webConfiguration)
         webView.navigationDelegate = self
         webView.uiDelegate = self
-        view = webView
+        //view = webView
+        // 允许左滑右滑，默认值为NO；设置为YES后，即可实现左右滑手势可用。
+        webView.allowsBackForwardNavigationGestures = true
+        view.addSubview(webView)
+        
+        // Initialize UIRefreshControl
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshWebView), for: .valueChanged)
+        webView.scrollView.addSubview(refreshControl)
         
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webView.load(request)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 适当的时机 移除 WKScriptMessageHandler 防止引用循环
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: JS_SCAN_CODE)
+    }
+    
+
+    
+    @objc func refreshWebView() {
+        // Reload the web page
+        webView.reload()
     }
     
     // 全屏展示
@@ -72,10 +90,10 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
 
     // MARK: JS 调用 swift
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "scanCode" {
+        if message.name == JS_SCAN_CODE {
             print("\(#function) 执行 \(message.name)")
             qqStyle()
-        }
+        } 
     }
     
     // MARK: - ---模仿qq扫码界面---------
@@ -93,46 +111,25 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
     
     
     func receiveScanReturn(code: String) {
+        print("\(#function) 关闭扫码页面")
+        vc.dismiss(animated: true, completion: nil)
+        
         let jsCode = "receiveScanResult('\(code)');"
         print("\(#function) 调用 js 方法 \(jsCode)")
         
-        vc.dismiss(animated: true, completion: nil)
-        
-
-        webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
-            if let error = error {
-                print("Error calling JavaScript function: \(error)")
-            } else if let result = result {
-                print("JavaScript result: \(result)")
-            }
-        })
+        let time = DispatchTime.now() + DispatchTimeInterval.milliseconds(800)
+        DispatchQueue.main.asyncAfter(deadline: time){
+            self.webView.evaluateJavaScript(jsCode, completionHandler: { (result, error) in
+                if let error = error {
+                    print("Error calling JavaScript function: \(error)")
+                } else if let result = result {
+                    print("JavaScript result: \(result)")
+                }
+            })
+        }
     }
     
 
-
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // 加载南石医院 OA 系统
-//        loadNsyyView()
-//    }
-//    
-//    // 加载南石医院 oa 页面
-//    func loadNsyyView() {
-//        // Initialize WKWebView
-//        webView = WKWebView(frame: view.frame)
-//        webView.navigationDelegate = self
-//        
-//        // 允许左滑右滑，默认值为NO；设置为YES后，即可实现左右滑手势可用。
-//        webView.allowsBackForwardNavigationGestures = true
-//        
-//        view.addSubview(webView)
-//
-//        // Load a URL
-//        let url = URL(string: urlString)
-//        let request = URLRequest(url: url!)
-//        webView.load(request)
-//    }
     
 }
 
@@ -153,6 +150,8 @@ extension NsyyViewController: WKNavigationDelegate {
     // 页面加载完成之后调用
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("\(#function) 网页加载成功 🎉")
+        
+        refreshControl.endRefreshing()
     }
     
     // 页面加载失败时调用
@@ -201,10 +200,6 @@ extension NsyyViewController: WKUIDelegate {
 extension NsyyViewController: LBXScanViewControllerDelegate {
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         print("\(#function) code scan result: \(scanResult)")
-        
-        self.dismiss(animated: true, completion: nil)
-        
         self.receiveScanReturn(code: scanResult.strScanned!)
-    
     }
 }

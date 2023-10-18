@@ -565,7 +565,7 @@
 				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "南石医院-医废";
+				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "请点击“允许”以允许访问";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙";
@@ -590,7 +590,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.NsyyYF;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.Nsyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -608,7 +608,7 @@
 				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "南石医院-医废";
+				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "请点击“允许”以允许访问";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙";
@@ -633,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.NsyyYF;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.Nsyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

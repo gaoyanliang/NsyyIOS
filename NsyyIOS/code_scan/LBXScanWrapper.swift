@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Vision
 import AVFoundation
 
 public struct LBXScanResult {
@@ -13,12 +14,20 @@ public struct LBXScanResult {
     /// 码内容
     public var strScanned: String?
     
+    /// 扫描图像
+    public var imgScanned: UIImage?
+    
     /// 码的类型
     public var strBarCodeType: String?
 
-    public init(str: String?, barCodeType: String?) {
+    /// 码在图像中的位置
+    public var arrayCorner: [AnyObject]?
+
+    public init(str: String?, img: UIImage?, barCodeType: String?, corner: [AnyObject]?) {
         strScanned = str
+        imgScanned = img
         strBarCodeType = barCodeType
+        arrayCorner = corner
     }
 }
 
@@ -40,6 +49,9 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     // 扫码结果返回block
     var successBlock: ([LBXScanResult]) -> Void
 
+    // 是否需要拍照
+    var isNeedCaptureImage: Bool
+
     // 当前扫码结果是否处理
     var isNeedScanResult = true
     
@@ -51,17 +63,20 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
      初始化设备
      - parameter videoPreView: 视频显示UIView
      - parameter objType:      识别码的类型,缺省值 QR二维码
+     - parameter isCaptureImg: 识别后是否采集当前照片
      - parameter cropRect:     识别区域
      - parameter success:      返回识别信息
      - returns:
      */
     init(videoPreView: UIView,
          objType: [AVMetadataObject.ObjectType] = [(AVMetadataObject.ObjectType.qr as NSString) as AVMetadataObject.ObjectType],
+         isCaptureImg: Bool,
          cropRect: CGRect = .zero,
          success: @escaping (([LBXScanResult]) -> Void)) {
         
         successBlock = success
         output = AVCaptureMetadataOutput()
+        isNeedCaptureImage = isCaptureImg
         stillImageOutput = AVCaptureStillImageOutput()
 
         super.init()
@@ -166,7 +181,9 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
             #if !targetEnvironment(simulator)
             
             arrayResult.append(LBXScanResult(str: code.stringValue,
-                                             barCodeType: code.type.rawValue))
+                                             img: UIImage(),
+                                             barCodeType: code.type.rawValue,
+                                             corner: code.corners as [AnyObject]?))
             #endif
         }
 
@@ -177,6 +194,9 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
             
             if supportContinuous {
                 successBlock(arrayResult)
+            }
+            else if isNeedCaptureImage {
+                captureImage()
             } else {
                 stop()
                 successBlock(arrayResult)
@@ -192,14 +212,14 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         }
         stillImageOutput.captureStillImageAsynchronously(from: stillImageConnection, completionHandler: { (imageDataSampleBuffer, _) -> Void in
             self.stop()
-//            if let imageDataSampleBuffer = imageDataSampleBuffer,
-//                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) {
-//                
-//                let scanImg = UIImage(data: imageData)
-//                for idx in 0 ... self.arrayResult.count - 1 {
-//                    self.arrayResult[idx].imgScanned = scanImg
-//                }
-//            }
+            if let imageDataSampleBuffer = imageDataSampleBuffer,
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) {
+                
+                let scanImg = UIImage(data: imageData)
+                for idx in 0 ... self.arrayResult.count - 1 {
+                    self.arrayResult[idx].imgScanned = scanImg
+                }
+            }
             self.successBlock(self.arrayResult)
         })
     }
@@ -290,24 +310,161 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
      */
     public static func recognizeQRImage(image: UIImage) -> [LBXScanResult] {
         print("\(#function) 识别图片中的二维码")
-        guard let cgImage = image.cgImage else {
-            return []
-        }
-        let detector = CIDetector(ofType: CIDetectorTypeQRCode,
-                                  context: nil,
-                                  options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])!
-        let img = CIImage(cgImage: cgImage)
-        let features = detector.features(in: img, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
-        return features.filter {
-            $0.isKind(of: CIQRCodeFeature.self)
-        }.map {
-            $0 as! CIQRCodeFeature
-        }.map {
-            LBXScanResult(str: $0.messageString,
-                          barCodeType: AVMetadataObject.ObjectType.qr.rawValue)
-        }
+        
+        return parseBarCode(img: image)
     }
     
+    
+    /// 识别二维码和条形码  https://juejin.cn/post/7200944831115706429
+    static func parseBarCode(img: UIImage) -> [LBXScanResult]  {
+        print("\(#function) 识别二维码和条形码")
+        var resultRet: [LBXScanResult] = []
+        
+        guard let cgimg = img.cgImage else {
+            return []
+        }
+        let request = VNDetectBarcodesRequest { req, err in
+            if let error = err {
+                print("\(#function) 识别二维码和条形码 parseBarCode error: \(error)")
+                return
+            }
+            guard let results = req.results, results.count > 0 else {
+                resultRet = parseCodeWithOld(cgImage: cgimg)
+                
+                return
+            }
+            for result in results {
+                if let barcode = result as? VNBarcodeObservation, let value = barcode.payloadStringValue {
+                    if barcode.symbology == .qr { // 二维码
+                        print("\(#function) 成功识别二维码 qrcode: \(value)")
+                        resultRet.append(LBXScanResult(str: value,
+                                                       img: nil,
+                                                       barCodeType: AVMetadataObject.ObjectType.qr.rawValue,
+                                                       corner: nil))
+                    }else { // 条形码
+                        print("\(#function) 成功识别条形码 barcode: \(value)")
+                        resultRet.append(LBXScanResult(str: value,
+                                                       img: nil,
+                                                       barCodeType: AVMetadataObject.ObjectType.qr.rawValue,
+                                                       corner: nil))
+                    }
+                    break
+                }
+            }
+        }
+        
+        let handler = VNImageRequestHandler(cgImage: cgimg)
+        do {
+            try handler.perform([request])
+        } catch {
+            print("\(#function) 识别二维码和条形码 parseBarCode error: \(error)")
+        }
+        
+        return resultRet
+    }
+    
+    
+    // 在大 ipad 上使用 parseBarCode 识别分辨率较低（较大图片）的 图片时会扫描失败，尝试使用下面的方法
+    static func parseCodeWithOld(cgImage: CGImage) -> [LBXScanResult]  {
+
+        // Use an autorelease pool to periodically release memory
+        var result: [LBXScanResult] = []
+        
+        // Create a detector for QR codes
+        //let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        let detector = CIDetector(ofType: CIDetectorTypeRectangle, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+
+        // Detect QR codes in the image
+        let img = CIImage(cgImage: cgImage)
+        let features = detector?.features(in: img)
+
+        // Process the detected features
+        if let feature = features?.first as? CIQRCodeFeature {
+            result.append(LBXScanResult(str: feature.messageString,
+                                        img: nil,
+                                        barCodeType: AVMetadataObject.ObjectType.qr.rawValue,
+                                        corner: nil))
+        }
+
+        return result
+    }
+
+
+    
+
+    
+    //MARK: -- - 生成二维码，背景色及二维码颜色设置
+    public static func createCode(codeType: String, codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
+        let stringData = codeString.data(using: .utf8)
+
+        // 系统自带能生成的码
+        //        CIAztecCodeGenerator
+        //        CICode128BarcodeGenerator
+        //        CIPDF417BarcodeGenerator
+        //        CIQRCodeGenerator
+        let qrFilter = CIFilter(name: codeType)
+        qrFilter?.setValue(stringData, forKey: "inputMessage")
+        qrFilter?.setValue("H", forKey: "inputCorrectionLevel")
+
+        // 上色
+        let colorFilter = CIFilter(name: "CIFalseColor",
+                                   parameters: [
+                                       "inputImage": qrFilter!.outputImage!,
+                                       "inputColor0": CIColor(cgColor: qrColor.cgColor),
+                                       "inputColor1": CIColor(cgColor: bkColor.cgColor),
+                                   ]
+        )
+
+        guard let qrImage = colorFilter?.outputImage,
+        let cgImage = CIContext().createCGImage(qrImage, from: qrImage.extent) else {
+            return nil
+        }
+
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.interpolationQuality = CGInterpolationQuality.none
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.draw(cgImage, in: context.boundingBoxOfClipPath)
+        let codeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return codeImage
+    }
+    
+    public static func createCode128(codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
+        let stringData = codeString.data(using: String.Encoding.utf8)
+
+        // 系统自带能生成的码
+        //        CIAztecCodeGenerator 二维码
+        //        CICode128BarcodeGenerator 条形码
+        //        CIPDF417BarcodeGenerator
+        //        CIQRCodeGenerator     二维码
+        let qrFilter = CIFilter(name: "CICode128BarcodeGenerator")
+        qrFilter?.setDefaults()
+        qrFilter?.setValue(stringData, forKey: "inputMessage")
+
+        guard let outputImage = qrFilter?.outputImage else {
+            return nil
+        }
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
+            return nil
+        }
+        let image = UIImage(cgImage: cgImage, scale: 1.0, orientation: UIImage.Orientation.up)
+
+        // Resize without interpolating
+        return resizeImage(image: image, quality: CGInterpolationQuality.none, rate: 20.0)
+    }
+    
+    
+    // 根据扫描结果，获取图像中得二维码区域图像（如果相机拍摄角度故意很倾斜，获取的图像效果很差）
+    static func getConcreteCodeImage(srcCodeImage: UIImage, codeResult: LBXScanResult) -> UIImage? {
+        let rect = getConcreteCodeRectFromImage(srcCodeImage: srcCodeImage, codeResult: codeResult)
+        guard !rect.isEmpty, let img = imageByCroppingWithStyle(srcImg: srcCodeImage, rect: rect) else {
+            return nil
+        }
+        return imageRotation(image: img, orientation: UIImage.Orientation.right)
+    }
     
     // 根据二维码的区域截取二维码区域图像
     public static func getConcreteCodeImage(srcCodeImage: UIImage, rect: CGRect) -> UIImage? {
@@ -316,7 +473,46 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         }
         return imageRotation(image: img, orientation: UIImage.Orientation.right)
     }
+    
+    // 获取二维码的图像区域
+    public static func getConcreteCodeRectFromImage(srcCodeImage: UIImage, codeResult: LBXScanResult) -> CGRect {
+        guard let corner = codeResult.arrayCorner as? [[String: Float]], corner.count >= 4 else {
+            return .zero
+        }
 
+        let dicTopLeft = corner[0]
+        let dicTopRight = corner[1]
+        let dicBottomRight = corner[2]
+        let dicBottomLeft = corner[3]
+
+        let xLeftTopRatio = dicTopLeft["X"]!
+        let yLeftTopRatio = dicTopLeft["Y"]!
+        
+        let xRightTopRatio = dicTopRight["X"]!
+        let yRightTopRatio = dicTopRight["Y"]!
+
+        let xBottomRightRatio = dicBottomRight["X"]!
+        let yBottomRightRatio = dicBottomRight["Y"]!
+
+        let xLeftBottomRatio = dicBottomLeft["X"]!
+        let yLeftBottomRatio = dicBottomLeft["Y"]!
+
+        // 由于截图只能矩形，所以截图不规则四边形的最大外围
+        let xMinLeft = CGFloat(min(xLeftTopRatio, xLeftBottomRatio))
+        let xMaxRight = CGFloat(max(xRightTopRatio, xBottomRightRatio))
+
+        let yMinTop = CGFloat(min(yLeftTopRatio, yRightTopRatio))
+        let yMaxBottom = CGFloat(max(yLeftBottomRatio, yBottomRightRatio))
+
+        let imgW = srcCodeImage.size.width
+        let imgH = srcCodeImage.size.height
+        
+        // 宽高反过来计算
+        return CGRect(x: xMinLeft * imgH,
+                      y: yMinTop * imgW,
+                      width: (xMaxRight - xMinLeft) * imgH,
+                      height: (yMaxBottom - yMinTop) * imgW)
+    }
     
     //MARK: ----图像处理
     
