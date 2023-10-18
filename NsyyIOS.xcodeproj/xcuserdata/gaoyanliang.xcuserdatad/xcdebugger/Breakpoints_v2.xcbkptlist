@@ -440,6 +440,21 @@
                   endingLineNumber = "484"
                   offsetFromSymbolStart = "472">
                </Location>
+               <Location
+                  uuid = "8717CADE-CAE6-4D9A-B26D-15A67F187D5B - ae72cc7736520375"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static NsyyIOS.LBXScanWrapper.getConcreteCodeRectFromImage(srcCodeImage: __C.UIImage, codeResult: NsyyIOS.LBXScanResult) -&gt; __C.CGRect"
+                  moduleName = "NsyyIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaoyanliang/nsyy/ios/NsyyIOS/NsyyIOS/code_scan/LBXScanWrapper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "483"
+                  endingLineNumber = "483"
+                  offsetFromSymbolStart = "472">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
