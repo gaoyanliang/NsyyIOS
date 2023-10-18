@@ -37,6 +37,9 @@ class QQScanViewController: LBXScanViewController {
         //需要识别后的图像
         setNeedCodeImage(needCodeImg: true)
         
+        // 设置框内识别
+        setOpenInterestRect(isOpen: true)
+        
         // 根据设备调整扫描框位置 & 大小
         if UIDevice.current.userInterfaceIdiom == .pad {
             scanStyle!.xScanRetangleOffset = 160
