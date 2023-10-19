@@ -332,11 +332,9 @@ extension NsyyBluetooth: CBPeripheralDelegate {
             weight = weight.components(separatedBy: ",")[2]
             
             if let data: Double = Double(weight) {
-                let get_weight: Double = data / 1000
-                NsyyBluetooth.recvData[peripheral.identifier.uuidString] = get_weight.roundTo(places: 3)
-                print("\(#function) 接收到蓝牙设备返回数据 \(get_weight)")
+                NsyyBluetooth.recvData[peripheral.identifier.uuidString] = data.roundTo(places: 3)
+                print("\(#function) 接收到蓝牙设备返回数据 \(String(describing: NsyyBluetooth.recvData[peripheral.identifier.uuidString]))")
             }
-            
            
         }
     }
