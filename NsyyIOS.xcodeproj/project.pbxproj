@@ -27,6 +27,7 @@
 		134828B32AC2C63D0057C11D /* NsyyWebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B22AC2C63D0057C11D /* NsyyWebServer.swift */; };
 		134828B52AC2CEC90057C11D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B42AC2CEC90057C11D /* Notification.swift */; };
 		134828B72AC2D5950057C11D /* ReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134828B62AC2D5950057C11D /* ReturnData.swift */; };
+		1372304A2AE763000048F4FC /* NsyyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137230492AE763000048F4FC /* NsyyConfig.swift */; };
 		13784B722ADCC06100DF4700 /* LBXScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B712ADCC06100DF4700 /* LBXScanViewStyle.swift */; };
 		13784B742ADCC0A000DF4700 /* LBXScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B732ADCC0A000DF4700 /* LBXScanViewController.swift */; };
 		13784B762ADCC0C200DF4700 /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B752ADCC0C200DF4700 /* LBXScanWrapper.swift */; };
@@ -78,6 +79,7 @@
 		134828B22AC2C63D0057C11D /* NsyyWebServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyWebServer.swift; sourceTree = "<group>"; };
 		134828B42AC2CEC90057C11D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		134828B62AC2D5950057C11D /* ReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnData.swift; sourceTree = "<group>"; };
+		137230492AE763000048F4FC /* NsyyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyConfig.swift; sourceTree = "<group>"; };
 		13784B712ADCC06100DF4700 /* LBXScanViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXScanViewStyle.swift; sourceTree = "<group>"; };
 		13784B732ADCC0A000DF4700 /* LBXScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXScanViewController.swift; sourceTree = "<group>"; };
 		13784B752ADCC0C200DF4700 /* LBXScanWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		1337D88F2ABD945000A8F46D /* NsyyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				137230482AE762E50048F4FC /* config */,
 				13784B702ADBBA8900DF4700 /* code_scan */,
 				134828BF2AC50E920057C11D /* location */,
 				134828B82AC405420057C11D /* bluetooth */,
@@ -206,6 +209,14 @@
 				1332BCDD2AD2B0900097C92B /* BackgroundLocationManager.swift */,
 			);
 			path = location;
+			sourceTree = "<group>";
+		};
+		137230482AE762E50048F4FC /* config */ = {
+			isa = PBXGroup;
+			children = (
+				137230492AE763000048F4FC /* NsyyConfig.swift */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 		13784B702ADBBA8900DF4700 /* code_scan */ = {
@@ -379,6 +390,7 @@
 				1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */,
 				13784B9F2ADCDC1500DF4700 /* QQScanViewController.swift in Sources */,
 				13784B992ADCC45600DF4700 /* LBXScanLineAnimation.swift in Sources */,
+				1372304A2AE763000048F4FC /* NsyyConfig.swift in Sources */,
 				13784B762ADCC0C200DF4700 /* LBXScanWrapper.swift in Sources */,
 				134828B52AC2CEC90057C11D /* Notification.swift in Sources */,
 			);
@@ -562,7 +574,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
+				DEVELOPMENT_TEAM = KL924NUZZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
@@ -605,7 +617,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2F6Q7DQ3M;
+				DEVELOPMENT_TEAM = KL924NUZZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";

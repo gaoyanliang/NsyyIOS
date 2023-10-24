@@ -8,6 +8,26 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>选项</string>
+			<key>Key</key>
+			<string>selecter</string>
+			<key>DefaultValue</key>
+			<string>nsyy</string>
+			<key>Titles</key>
+			<array>
+				<string>南石医院综合管理平台</string>
+				<string>南石医院医废管理</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>nsyy</string>
+				<string>nsyy-yf</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>蓝牙秤 Mac 地址</string>

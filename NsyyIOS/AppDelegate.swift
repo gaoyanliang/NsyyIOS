@@ -26,7 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 实现自动启动 关键API 在注册此接口后，被用户或系统强行退出后，系统依然可以自动启动应用，进行关键位置定位
         manager.startMonitoringSignificantLocationChanges()
         
-        let server = NsyyWebServer(port: 8081)
+        var port = 8081
+        if let selecter = UserDefaults.standard.value(forKey: NsyyConfig.NSYY_CONFIG_IDENTIFIER) as? String {
+            switch selecter {
+            case "nsyy":
+                port = 8081
+            case "nsyy-yf":
+                port = 6079
+            default:
+                port = 8081
+            }
+        }
+        print("\(#function) nsyy web server port is \(port)")
+        let server = NsyyWebServer(port: port)
         server.start()
         
         return true

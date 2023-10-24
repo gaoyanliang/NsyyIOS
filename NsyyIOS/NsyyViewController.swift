@@ -14,21 +14,7 @@ import AVFoundation
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
 class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMetadataOutputObjectsDelegate {
     
-    private let JS_SCAN_CODE: String = "scanCode"
-    
-    // 测试扫码功能
-    //private let urlString: String = "https://dnswc2-vue-demo.site.laf.dev/"
-
-    // 南石医院 OA
-    private let urlString: String = "http://oa.nsyy.com.cn:6060"
-    
-    // private let urlString: String = "http://192.168.124.12:6060/"
-    
-    // 南石医院 - 医废
-    //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=13#/"
-
-    // 南石医院 - 医废 测试
-    //private let urlString: String = "http://120.194.96.67:6060/index1.html?type=013#/"
+    private let JS_CODE_SCAN: String = "scanCode"
     
     var webView: WKWebView!
     var refreshControl: UIRefreshControl!
@@ -40,7 +26,7 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         
         // Set up the WKUserContentController to handle JavaScript messages
         let contentController = WKUserContentController()
-        contentController.add(self, name: "scanCode")
+        contentController.add(self, name: JS_CODE_SCAN)
         
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
@@ -64,6 +50,18 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         refreshControl.addTarget(self, action: #selector(refreshWebView), for: .valueChanged)
         webView.scrollView.addSubview(refreshControl)
         
+        var urlString: String = NsyyConfig.NSYY_URL
+        if let selecter = UserDefaults.standard.value(forKey: NsyyConfig.NSYY_CONFIG_IDENTIFIER) as? String {
+            switch selecter {
+            case "nsyy":
+                urlString = NsyyConfig.NSYY_URL
+            case "nsyy-yf":
+                urlString = NsyyConfig.NSYY_YF_URL
+            default:
+                urlString = NsyyConfig.NSYY_URL
+            }
+        }
+        print("\(#function) 即将加载 \(urlString)")
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webView.load(request)
@@ -72,10 +70,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // 适当的时机 移除 WKScriptMessageHandler 防止引用循环
-        webView.configuration.userContentController.removeScriptMessageHandler(forName: JS_SCAN_CODE)
+        webView.configuration.userContentController.removeScriptMessageHandler(forName: JS_CODE_SCAN)
     }
-    
-
     
     @objc func refreshWebView() {
         // Reload the web page
@@ -90,15 +86,15 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
 
     // MARK: JS 调用 swift
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == JS_SCAN_CODE {
+        if message.name == JS_CODE_SCAN {
             print("\(#function) 执行 \(message.name)")
-            qqStyle()
-        } 
+            codeScan()
+        }
     }
     
     // MARK: - ---模仿qq扫码界面---------
-    func qqStyle() {
-        print("qqStyle")
+    func codeScan() {
+        print("\(#function) 准备开始扫码")
 
         vc = QQScanViewController()
         var style = LBXScanViewStyle()

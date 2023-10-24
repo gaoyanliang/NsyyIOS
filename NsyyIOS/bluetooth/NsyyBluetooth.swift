@@ -220,7 +220,7 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
         }
         
         // 如果发现配置的设备，直接尝试连接
-        if let mac_address = UserDefaults.standard.value(forKey: "mac_address") as? String {
+        if let mac_address = UserDefaults.standard.value(forKey: NsyyConfig.BLUETOOTH_CONFIG_IDENTIFIER) as? String {
             for (add, device) in NsyyBluetooth.bluetoothDeviceList {
                 if !add.contains(mac_address) {
                     continue
