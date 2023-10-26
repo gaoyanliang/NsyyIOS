@@ -40,6 +40,7 @@ class NsyyWebServer: ObservableObject {
               try nsyyNotification.routes_notification(app)
               try SignificantLocationManager.sharedManager.routes_location(app)
               try bluetooth.routes_bluetooth(app)
+              try NsyyConfig().routes_config(app)
               try app.start()
           } catch {
               fatalError(error.localizedDescription)

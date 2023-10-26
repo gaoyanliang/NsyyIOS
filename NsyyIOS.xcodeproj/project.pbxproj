@@ -36,6 +36,7 @@
 		13784B9B2ADCC47800DF4700 /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9A2ADCC47800DF4700 /* LBXScanNetAnimation.swift */; };
 		13784B9D2ADCC51300DF4700 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9C2ADCC51300DF4700 /* LBXPermissions.swift */; };
 		13784B9F2ADCDC1500DF4700 /* QQScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9E2ADCDC1500DF4700 /* QQScanViewController.swift */; };
+		13CCB8412AEA69BD00E6E11E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CCB8402AEA69BD00E6E11E /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		13784B9A2ADCC47800DF4700 /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
 		13784B9C2ADCC51300DF4700 /* LBXPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
 		13784B9E2ADCDC1500DF4700 /* QQScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQScanViewController.swift; sourceTree = "<group>"; };
+		13CCB8402AEA69BD00E6E11E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				137230492AE763000048F4FC /* NsyyConfig.swift */,
+				13CCB8402AEA69BD00E6E11E /* UserInfo.swift */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				13784B992ADCC45600DF4700 /* LBXScanLineAnimation.swift in Sources */,
 				1372304A2AE763000048F4FC /* NsyyConfig.swift in Sources */,
 				13784B762ADCC0C200DF4700 /* LBXScanWrapper.swift in Sources */,
+				13CCB8412AEA69BD00E6E11E /* UserInfo.swift in Sources */,
 				134828B52AC2CEC90057C11D /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

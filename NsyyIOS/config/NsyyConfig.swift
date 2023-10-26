@@ -5,7 +5,7 @@
 //  Created by yanliang gao on 2023/10/24.
 //
 
-import Foundation
+import Vapor
 
 class NsyyConfig {
 
@@ -26,8 +26,48 @@ class NsyyConfig {
     
     
     // settings bundle 配置标识符
+    // 蓝牙秤 mac 地址
     static let BLUETOOTH_CONFIG_IDENTIFIER: String = "mac_address"
     
+    // 选项
     static let NSYY_CONFIG_IDENTIFIER: String = "selecter"
+    
+    // 账户
+    static let USERNAME_CONFIG_IDENTIFIER: String = "username"
+    
+    // 密码
+    static let PASSWORD_CONFIG_IDENTIFIER: String = "password"
+    
+    
+    
+    func routes_config(_ app: Application) throws {
+        // 查询用户信息
+        app.get("user") { req async -> UserInfo in
+            
+            let username = UserDefaults.standard.value(forKey: NsyyConfig.USERNAME_CONFIG_IDENTIFIER) as? String
+            let password = UserDefaults.standard.value(forKey: NsyyConfig.PASSWORD_CONFIG_IDENTIFIER) as? String
+            
+            if (username ?? "").isEmpty || (password ?? "").isEmpty {
+                return UserInfo(hasValue: false, username: "", password: "")
+            }
+
+            return UserInfo(hasValue: true, username: username!, password: password!)
+        }
+        
+        // 存储用户信息
+        app.on(.POST, "user", body: .stream) { req -> ReturnData in
+            let userInfo = try req.content.decode(UserInfo.self)
+            print("save user info: username: \(userInfo.username) , password: \(userInfo.password)")
+            if userInfo.username.isEmpty || userInfo.password.isEmpty {
+                return ReturnData(isSuccess: false, code: 20001, errorMsg: "The user name and password can not be null", data: "")
+            }
+            
+            UserDefaults.standard.set(userInfo.username, forKey: NsyyConfig.USERNAME_CONFIG_IDENTIFIER)
+            UserDefaults.standard.set(userInfo.password, forKey: NsyyConfig.PASSWORD_CONFIG_IDENTIFIER)
+            
+            return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "User info saved successful")
+        }
+        
+    }
     
 }
