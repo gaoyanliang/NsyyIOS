@@ -38,6 +38,9 @@ class NsyyConfig {
     // 密码
     static let PASSWORD_CONFIG_IDENTIFIER: String = "password"
     
+    // 版本号
+    static let VERSION_CONFIG_IDENTIFIER: String = "version"
+    
     
     
     func routes_config(_ app: Application) throws {
@@ -46,24 +49,26 @@ class NsyyConfig {
             
             let username = UserDefaults.standard.value(forKey: NsyyConfig.USERNAME_CONFIG_IDENTIFIER) as? String
             let password = UserDefaults.standard.value(forKey: NsyyConfig.PASSWORD_CONFIG_IDENTIFIER) as? String
+            let version = UserDefaults.standard.value(forKey: NsyyConfig.VERSION_CONFIG_IDENTIFIER) as? String
             
-            if (username ?? "").isEmpty || (password ?? "").isEmpty {
-                return UserInfo(hasValue: false, username: "", password: "")
+            if (username ?? "").isEmpty || (password ?? "").isEmpty || (version ?? "").isEmpty {
+                return UserInfo(hasValue: false, username: "", password: "", version: "")
             }
 
-            return UserInfo(hasValue: true, username: username!, password: password!)
+            return UserInfo(hasValue: true, username: username!, password: password!, version: version!)
         }
         
         // 存储用户信息
         app.on(.POST, "user", body: .stream) { req -> ReturnData in
             let userInfo = try req.content.decode(UserInfo.self)
             print("save user info: username: \(userInfo.username) , password: \(userInfo.password)")
-            if userInfo.username.isEmpty || userInfo.password.isEmpty {
-                return ReturnData(isSuccess: false, code: 20001, errorMsg: "The user name and password can not be null", data: "")
+            if userInfo.username.isEmpty || userInfo.password.isEmpty || userInfo.version.isEmpty {
+                return ReturnData(isSuccess: false, code: 20001, errorMsg: "The user name, password, version can not be null", data: "")
             }
             
             UserDefaults.standard.set(userInfo.username, forKey: NsyyConfig.USERNAME_CONFIG_IDENTIFIER)
             UserDefaults.standard.set(userInfo.password, forKey: NsyyConfig.PASSWORD_CONFIG_IDENTIFIER)
+            UserDefaults.standard.set(userInfo.version, forKey: NsyyConfig.VERSION_CONFIG_IDENTIFIER)
             
             return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "User info saved successful")
         }

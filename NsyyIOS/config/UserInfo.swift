@@ -11,4 +11,5 @@ struct UserInfo: Content {
     let hasValue: Bool
     let username: String
     let password: String
+    let version: String
 }
