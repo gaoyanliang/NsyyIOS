@@ -18,10 +18,6 @@ class NsyyBluetooth: NSObject {
     
     static var centralManager:CBCentralManager?
     
-    //扫描到的所有设备
-    static var bluetoothDeviceArray: [String:CBPeripheral] = [:]
-    static var bluetoothDeviceList: [String:CBPeripheral] = [:]
-    
     //当前连接的设备
     static var electronicWeigher: CBPeripheral? = nil
     static var scanGun: CBPeripheral? = nil
@@ -38,9 +34,17 @@ class NsyyBluetooth: NSObject {
     // 接收到的数据
     static var recvData: [String:Double] = [:]
     
-    // 申请位置权限 & 获取位置
+    // 申请蓝牙权限
     func setUpBluetooth() {
         NsyyBluetooth.centralManager = CBCentralManager(delegate: self, queue: nil)
+        
+        // 从配置文件中读取蓝牙秤 mac address 以及 扫码枪名称
+        if let mac_address = UserDefaults.standard.value(forKey: NsyyConfig.BLUETOOTH_CONFIG_IDENTIFIER) as? String {
+            NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS = mac_address
+        }
+        if let scan_gun_name = UserDefaults.standard.value(forKey: NsyyConfig.SCAN_GUN_NAME_CONFIG_IDENTIFIER) as? String {
+            NsyyBluetooth.SCAN_GUN_NAME = scan_gun_name
+        }
     }
     
     static func setWebView(webView: WKWebView) {
@@ -48,6 +52,7 @@ class NsyyBluetooth: NSObject {
     }
     
     
+    // 注册对外接口
     func routes_bluetooth(_ app: Application) throws {
         
         // 获取电子秤重量
@@ -76,6 +81,7 @@ class NsyyBluetooth: NSObject {
             
         }
         
+        
         // 连接扫码枪 Code scanning gun
         app.get("conn_scan_gun") { req async -> ReturnData in
             
@@ -101,31 +107,29 @@ class NsyyBluetooth: NSObject {
     
     // 通过配置的 mac address 来确定是否连接到指定蓝牙秤， 没有连接
     func isConnect() -> Bool {
+        if let mac_address = UserDefaults.standard.value(forKey: NsyyConfig.BLUETOOTH_CONFIG_IDENTIFIER) as? String {
+            NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS = mac_address
+        }
+        
         // Access a boolean setting
-        if let mac_address = UserDefaults.standard.value(forKey: "mac_address") as? String {
+        if NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS != "" {
             
-            for (add, device) in NsyyBluetooth.bluetoothDeviceList {
-                if !add.contains(mac_address) {
-                    continue
-                }
-                
-                if device.state == .connected {
-                    print("\(#function) 设备已连接. \(device) ")
+            if NsyyBluetooth.electronicWeigher != nil {
+                if NsyyBluetooth.electronicWeigher?.state == .connected {
+                    print("\(#function) 设备已连接. \(String(describing: NsyyBluetooth.electronicWeigher?.name)) ")
                     return true
                 }
                 
-                print("\(#function) 设备未连接，开始连接 \(device) ")
-                NsyyBluetooth.electronicWeigher = device
+                print("\(#function) 设备未连接，开始连接 \(String(describing: NsyyBluetooth.electronicWeigher?.name)) ")
                 doConnect(peripheral: NsyyBluetooth.electronicWeigher!)
                 
                 // Delay the task by 0.5 second:
                 Thread.sleep(forTimeInterval: 0.5)
                 
                 return true
+            } else {
+                return false
             }
-            
-            return false
-            
         } else {
             print("\(#function) 未发现蓝牙秤 MAC 地址相关配置")
             return false
@@ -151,6 +155,14 @@ class NsyyBluetooth: NSObject {
     
     ///开始扫描
     func startScan(serviceUUIDS:[CBUUID]? = nil, options:[String: Any]? = nil) {
+        // 从配置文件中读取蓝牙秤 mac address 以及 扫码枪名称
+        if let mac_address = UserDefaults.standard.value(forKey: NsyyConfig.BLUETOOTH_CONFIG_IDENTIFIER) as? String {
+            NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS = mac_address
+        }
+        if let scan_gun_name = UserDefaults.standard.value(forKey: NsyyConfig.SCAN_GUN_NAME_CONFIG_IDENTIFIER) as? String {
+            NsyyBluetooth.SCAN_GUN_NAME = scan_gun_name
+        }
+        
         NsyyBluetooth.centralManager?.scanForPeripherals(withServices: serviceUUIDS, options: options)
         print("\(#function) 开始扫描蓝牙设备")
     }
@@ -204,18 +216,10 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
             if central.state == CBManagerState.poweredOn {
                 print("\(#function) 蓝牙已开启!")
                 
-                // 从配置文件中读取蓝牙秤 mac address 以及 扫码枪名称
-                if let mac_address = UserDefaults.standard.value(forKey: NsyyConfig.BLUETOOTH_CONFIG_IDENTIFIER) as? String {
-                    NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS = mac_address
-                }
-                if let scan_gun_name = UserDefaults.standard.value(forKey: NsyyConfig.SCAN_GUN_NAME_CONFIG_IDENTIFIER) as? String {
-                    NsyyBluetooth.SCAN_GUN_NAME = scan_gun_name
-                }
-                
                 startScan()
                 
-                // 十秒时候关闭扫描
-                let time = DispatchTime.now() + DispatchTimeInterval.seconds(15)
+                // 十秒后关闭扫描
+                let time = DispatchTime.now() + DispatchTimeInterval.seconds(10)
                 DispatchQueue.main.asyncAfter(deadline: time){
                     self.stopScan()
                 }
@@ -245,48 +249,40 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
             return
         }
         
-        if let curBluetooth = NsyyBluetooth.bluetoothDeviceArray[peripheral.identifier.uuidString] {
-            print("设备已存在 \(curBluetooth)")
-            return
-        }
+        print("\(#function) 发现蓝牙设备: \(String(describing: peripheral.name)), \(peripheral.identifier), \(peripheral.state)")
         
-        print("\(#function) 发现蓝牙设备 peripheral:\(peripheral) \n")
         // 获取蓝牙设备的 mac address
         var macAddress: String! = ""
         if let mData = advertisementData["kCBAdvDataManufacturerData"] as? Data {
             macAddress = mData.map { String(format: "%02X", $0) }.joined()
         }
         
-        print("\(#function) 蓝牙设备 \(String(describing: peripheral.name)) ： 的 mac 地址为 \(String(describing: macAddress))")
-        NsyyBluetooth.bluetoothDeviceArray[peripheral.identifier.uuidString] = peripheral
+        print("\(#function) 蓝牙设备 \(String(describing: peripheral.name))：的 mac 地址为 \(String(describing: macAddress))")
+
+        // 连接电子秤
         if macAddress != "" && NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS != "" {
-            NsyyBluetooth.bluetoothDeviceList[macAddress] = peripheral
-            
-            for (address, device) in NsyyBluetooth.bluetoothDeviceList {
-                if !address.contains(NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS) {
-                    continue
-                }
-                
+            if macAddress.contains(NsyyBluetooth.BLUETOOTH_SCALE_MAC_ADDRESS) {
                 print("\(#function) 发现蓝牙秤，开始尝试连接")
+                NsyyBluetooth.electronicWeigher = peripheral
                 
-                if device.state == .connected || device.state == .connecting {
-                    print("\(#function) 设备已连接. \(device) ")
-                    break
+                if NsyyBluetooth.electronicWeigher?.state == .connected || NsyyBluetooth.electronicWeigher?.state == .connecting {
+                    print("\(#function) 蓝牙秤已连接. \(String(describing: NsyyBluetooth.electronicWeigher?.name)) ")
+                } else {
+                    print("\(#function) 蓝牙秤未连接，开始连接 \(String(describing: NsyyBluetooth.electronicWeigher?.name)) ")
+                    doConnect(peripheral: NsyyBluetooth.electronicWeigher!)
                 }
-                
-                print("\(#function) 设备未连接，开始连接 \(device) ")
-                NsyyBluetooth.electronicWeigher = device
-                doConnect(peripheral: NsyyBluetooth.electronicWeigher!)
             }
         }
         
-        // 连接扫码枪
+        // 连接扫码枪，通过名称来匹配扫码枪
         if NsyyBluetooth.SCAN_GUN_NAME != "" && peripheral.name?.contains(NsyyBluetooth.SCAN_GUN_NAME) == true {
             print("\(#function) 发现扫码枪，开始尝试连接")
-            if peripheral.state == .connected || peripheral.state == .connecting {
-                print("\(#function) 扫码枪已连接. \(peripheral) ")
+            NsyyBluetooth.scanGun = peripheral
+            
+            if NsyyBluetooth.scanGun?.state == .connected || NsyyBluetooth.scanGun?.state == .connecting {
+                print("\(#function) 扫码枪已连接. \(String(describing: NsyyBluetooth.scanGun?.name)) ")
             } else {
-                NsyyBluetooth.scanGun = peripheral
+                print("\(#function) 扫码枪未连接. 开始尝试连接 \(String(describing: NsyyBluetooth.scanGun?.name)) ")
                 doConnect(peripheral: NsyyBluetooth.scanGun!)
             }
         }
@@ -295,7 +291,7 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
     
     // MARK: 连接外设成功，开始发现服务
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("\(#function) 蓝牙设备连接成功。peripheral:\(peripheral)\n")
+        print("\(#function) 蓝牙设备 \(String(describing: peripheral.name)) 连接成功。")
         
         // 设置代理
         peripheral.delegate = self
@@ -305,12 +301,12 @@ extension NsyyBluetooth:CBCentralManagerDelegate {
     
     // MARK: 连接外设失败
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        print("\(#function)连接外设失败\n\(String(describing: peripheral.name))连接失败：\(String(describing: error))\n")
+        print("\(#function) \(String(describing: peripheral.name)) 连接失败：\(String(describing: error))")
     }
     
     // MARK: 连接丢失
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print("\(#function)连接丢失\n外设：\(String(describing: peripheral.name))\n错误：\(String(describing: error))\n")
+        print("\(#function) \(String(describing: peripheral.name)) 连接丢失：\(String(describing: error))")
     }
 }
 
@@ -321,38 +317,44 @@ extension NsyyBluetooth: CBPeripheralDelegate {
     //MARK: 匹配对应服务UUID
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let error = error  {
-            print("\(#function)搜索到服务-出错\n设备(peripheral)：\(String(describing: peripheral.name)) 搜索服务(Services)失败：\(error)\n")
+            print("\(#function) 设备：\(String(describing: peripheral.name)) 搜索服务(Services)失败：\(error) ")
             return
-        } else {
-            print("\(#function)搜索到服务\n设备(peripheral)：\(String(describing: peripheral.name))\n")
         }
+        
         for service in peripheral.services ?? [] {
             peripheral.discoverCharacteristics(nil, for: service)
+            print("\(#function) 搜索到服务：\(String(describing: peripheral.name)), \(service.uuid)")
         }
     }
     
     //MARK: 服务下的特征
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let _ = error {
-            print("\(#function) 发现特征\n设备(peripheral)：\(String(describing: peripheral.name))\n 服务(service)：\(String(describing: service))\n 扫描特征(Characteristics)失败：\(String(describing: error))\n")
+            print("\(#function) 设备：\(String(describing: peripheral.name)),  服务(service)：\(String(describing: service.uuid)),  扫描特征(Characteristics)失败：\(String(describing: error)) ")
             return
-        } else {
-            print("\(#function)发现特征\n设备(peripheral)：\(String(describing: peripheral.name))\n服务(service)：\(String(describing: service))\n服务下的特征：\(service.characteristics ?? [])\n")
         }
         
         for characteristic in service.characteristics ?? [] {
+            print("\(#function) 设备：\(String(describing: peripheral.name)), 服务(service)：\(String(describing: service.uuid)),  服务下的特征：\(characteristic.uuid) ")
+            
             // 开启扫码枪的通知服务，获取扫码之后的值
             if peripheral.name?.contains(NsyyBluetooth.SCAN_GUN_NAME) == true && characteristic.properties.contains(.notify) {
                 peripheral.setNotifyValue(true, for: characteristic)
+                continue
             }
             
-            if characteristic.uuid.uuidString.lowercased().isEqual(BLE_WRITE_UUID) {
-                NsyyBluetooth.electronicWeigher = peripheral
-                NsyyBluetooth.writeCh = characteristic
-            } else if characteristic.uuid.uuidString.lowercased().isEqual(BLE_NOTIFY_UUID) {
-                //该组参数无用
-                NsyyBluetooth.notifyCh = characteristic
-                peripheral.setNotifyValue(true, for: characteristic)
+            // 记录电子秤的服务特征
+            if peripheral.name == NsyyBluetooth.electronicWeigher?.name {
+                if characteristic.uuid.uuidString.lowercased().isEqual(BLE_WRITE_UUID) {
+                    NsyyBluetooth.electronicWeigher = peripheral
+                    NsyyBluetooth.writeCh = characteristic
+                } else if characteristic.uuid.uuidString.lowercased().isEqual(BLE_NOTIFY_UUID) {
+                    //该组参数无用
+                    NsyyBluetooth.notifyCh = characteristic
+                    peripheral.setNotifyValue(true, for: characteristic)
+                }
+                
+                continue
             }
             //此处代表连接成功
         }
@@ -382,7 +384,6 @@ extension NsyyBluetooth: CBPeripheralDelegate {
                     print("JavaScript result: \(result)")
                 }
             })
-            
             
             return
         }
