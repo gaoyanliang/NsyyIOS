@@ -10,6 +10,18 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
+			<string>扫码枪名称</string>
+			<key>Key</key>
+			<string>scan_gun_name</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
 			<string>版本号</string>
 			<key>Key</key>
 			<string>version</string>

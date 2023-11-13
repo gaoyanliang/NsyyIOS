@@ -17,6 +17,7 @@ import Vapor
 class SignificantLocationManager: CLLocationManager, CLLocationManagerDelegate {
     
     static var cur_location: String = ""
+    static var timeInterval: Int = 0
     
     var isRunFromeSystem: Bool = false //是否是系统因为位置发生重大变化，自动启动了程序
     var isUnStartBackgoundLocation: Bool = false
@@ -79,6 +80,12 @@ class SignificantLocationManager: CLLocationManager, CLLocationManagerDelegate {
     // MARK: - 位置转换
     // 将 CLLocation 转换为具体的地址
     private func locationConvented(location: CLLocation) {
+        let interval = Int(Date().timeIntervalSince1970)
+        if interval - SignificantLocationManager.timeInterval < 30 {
+            return
+        }
+        SignificantLocationManager.timeInterval = interval
+        
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             guard let placemark = placemarks?.first, error == nil else {

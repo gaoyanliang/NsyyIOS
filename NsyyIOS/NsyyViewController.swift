@@ -65,6 +65,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webView.load(request)
+        
+        NsyyBluetooth.setWebView(webView: webView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

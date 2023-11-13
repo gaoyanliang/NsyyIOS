@@ -31,6 +31,7 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
     private var num: Int = 0 //定位计数，用以判断每次程序启动定位了几次
     private var bgTaskTimer: Timer?
     private var isStartUpdatingLocation: Bool = false
+    private var timeInterval: Int = 0
     
     private override init() {
         super.init()
@@ -54,7 +55,8 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
         
 
         num += 1
-        BGTask.shared.beginNewBackgroundTask()
+        _ = BGTask.shared.beginNewBackgroundTask()
+        print("\(#function) 程序手动启动，-前台-第\(num)次定位")
         stopUpdatingLocation()
         isStartUpdatingLocation = false
     }
@@ -63,7 +65,7 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
         bgTaskTimer?.invalidate()
         bgTaskTimer = nil
         bgTaskTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(bgTaskTimerAction), userInfo: nil, repeats: true)
-        BGTask.shared.beginNewBackgroundTask()
+        _ = BGTask.shared.beginNewBackgroundTask()
     }
     
     @objc private func bgTaskTimerAction() {
@@ -98,6 +100,12 @@ class BackgroundLocationManager: CLLocationManager, CLLocationManagerDelegate {
     
     // 将 CLLocation 转换为具体的地址
     private func locationConvented(location: CLLocation) {
+        var interval = Int(Date().timeIntervalSince1970)
+        if interval - self.timeInterval < 30 {
+            return
+        }
+        self.timeInterval = interval
+        
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             guard let placemark = placemarks?.first, error == nil else {

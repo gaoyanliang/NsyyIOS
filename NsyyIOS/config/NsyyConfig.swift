@@ -29,6 +29,9 @@ class NsyyConfig {
     // 蓝牙秤 mac 地址
     static let BLUETOOTH_CONFIG_IDENTIFIER: String = "mac_address"
     
+    // 扫码枪名称
+    static let SCAN_GUN_NAME_CONFIG_IDENTIFIER: String = "scan_gun_name"
+    
     // 选项
     static let NSYY_CONFIG_IDENTIFIER: String = "selecter"
     
