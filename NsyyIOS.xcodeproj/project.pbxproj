@@ -36,6 +36,9 @@
 		13784B9B2ADCC47800DF4700 /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9A2ADCC47800DF4700 /* LBXScanNetAnimation.swift */; };
 		13784B9D2ADCC51300DF4700 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9C2ADCC51300DF4700 /* LBXPermissions.swift */; };
 		13784B9F2ADCDC1500DF4700 /* QQScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9E2ADCDC1500DF4700 /* QQScanViewController.swift */; };
+		13BC505C2B0323CF00D9194D /* nsyy1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13BC505A2B0323CF00D9194D /* nsyy1.jpg */; };
+		13BC505D2B0323CF00D9194D /* nsyy0.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BC505B2B0323CF00D9194D /* nsyy0.png */; };
+		13BC50612B03585C00D9194D /* DynamicLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC50602B03585C00D9194D /* DynamicLoadingViewController.swift */; };
 		13CCB8412AEA69BD00E6E11E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CCB8402AEA69BD00E6E11E /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +92,9 @@
 		13784B9A2ADCC47800DF4700 /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
 		13784B9C2ADCC51300DF4700 /* LBXPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
 		13784B9E2ADCDC1500DF4700 /* QQScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQScanViewController.swift; sourceTree = "<group>"; };
+		13BC505A2B0323CF00D9194D /* nsyy1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nsyy1.jpg; path = ../../../../.Trash/img/nsyy1.jpg; sourceTree = "<group>"; };
+		13BC505B2B0323CF00D9194D /* nsyy0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nsyy0.png; path = ../../../../.Trash/img/nsyy0.png; sourceTree = "<group>"; };
+		13BC50602B03585C00D9194D /* DynamicLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLoadingViewController.swift; sourceTree = "<group>"; };
 		13CCB8402AEA69BD00E6E11E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,8 @@
 		1337D88F2ABD945000A8F46D /* NsyyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				13BC505B2B0323CF00D9194D /* nsyy0.png */,
+				13BC505A2B0323CF00D9194D /* nsyy1.jpg */,
 				137230482AE762E50048F4FC /* config */,
 				13784B702ADBBA8900DF4700 /* code_scan */,
 				134828BF2AC50E920057C11D /* location */,
@@ -164,6 +172,7 @@
 				1337D8992ABD945100A8F46D /* Assets.xcassets */,
 				1337D89B2ABD945100A8F46D /* LaunchScreen.storyboard */,
 				1337D89E2ABD945100A8F46D /* Info.plist */,
+				13BC50602B03585C00D9194D /* DynamicLoadingViewController.swift */,
 			);
 			path = NsyyIOS;
 			sourceTree = "<group>";
@@ -349,6 +358,8 @@
 			files = (
 				1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */,
 				1337D89D2ABD945100A8F46D /* LaunchScreen.storyboard in Resources */,
+				13BC505D2B0323CF00D9194D /* nsyy0.png in Resources */,
+				13BC505C2B0323CF00D9194D /* nsyy1.jpg in Resources */,
 				1337D89A2ABD945100A8F46D /* Assets.xcassets in Resources */,
 				1337D8982ABD945000A8F46D /* Main.storyboard in Resources */,
 			);
@@ -394,6 +405,7 @@
 				13784B9F2ADCDC1500DF4700 /* QQScanViewController.swift in Sources */,
 				13784B992ADCC45600DF4700 /* LBXScanLineAnimation.swift in Sources */,
 				1372304A2AE763000048F4FC /* NsyyConfig.swift in Sources */,
+				13BC50612B03585C00D9194D /* DynamicLoadingViewController.swift in Sources */,
 				13784B762ADCC0C200DF4700 /* LBXScanWrapper.swift in Sources */,
 				13CCB8412AEA69BD00E6E11E /* UserInfo.swift in Sources */,
 				134828B52AC2CEC90057C11D /* Notification.swift in Sources */,

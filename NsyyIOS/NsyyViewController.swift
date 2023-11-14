@@ -11,6 +11,7 @@ import CoreLocation
 import Vapor
 import AVFoundation
 
+
 // 注意： 要想正常加载指定 URL 需要在 info.plist 中配置 App Transport Security Settings - Allow Arbitrary Loads = true
 class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -19,6 +20,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
     var webView: WKWebView!
     var refreshControl: UIRefreshControl!
     var vc: QQScanViewController!
+    
+    var loadingView: DynamicLoadingViewController!
     
     
     override func viewDidLoad() {
@@ -61,6 +64,13 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
                 urlString = NsyyConfig.NSYY_URL
             }
         }
+        
+        // 创建一个加载遮罩
+        loadingView = DynamicLoadingViewController(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        //webView.addSubview(loadingView)
+        loadingView.showInCenter()
+        
+        
         print("\(#function) 即将加载 \(urlString)")
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
@@ -150,6 +160,10 @@ extension NsyyViewController: WKNavigationDelegate {
         print("\(#function) 网页加载成功 🎉")
         
         refreshControl.endRefreshing()
+        
+        if webView.isLoading == false {
+                loadingView.removeFromSuperview()
+            }
     }
     
     // 页面加载失败时调用
