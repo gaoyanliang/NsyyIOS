@@ -10,14 +10,9 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var notification: NsyyNotification = NsyyNotification()
-    var bluetooth: NsyyBluetooth = NsyyBluetooth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        bluetooth.setUpBluetooth()
-        notification.requestPermission()
         
         // Create location manager singleton
         let manager = SignificantLocationManager.sharedManager

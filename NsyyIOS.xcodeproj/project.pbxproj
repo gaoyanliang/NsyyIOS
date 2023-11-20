@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1323D32C2AD550A900C8F03C /* Settings.bundle */; };
 		132C256E2AC15BBF00A1A35D /* NsyyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */; };
+		1330964B2B0AF17A00731CAF /* nsyy0.png in Resources */ = {isa = PBXBuildFile; fileRef = 133096492B0AF17A00731CAF /* nsyy0.png */; };
+		1330964C2B0AF17A00731CAF /* nsyy1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1330964A2B0AF17A00731CAF /* nsyy1.jpg */; };
 		1332BCD42AD1636F0097C92B /* NsyyBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */; };
 		1332BCD62AD25E260097C92B /* BluetoothReturnData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */; };
 		1332BCDA2AD2AF410097C92B /* BGTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332BCD92AD2AF410097C92B /* BGTask.swift */; };
@@ -36,8 +38,6 @@
 		13784B9B2ADCC47800DF4700 /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9A2ADCC47800DF4700 /* LBXScanNetAnimation.swift */; };
 		13784B9D2ADCC51300DF4700 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9C2ADCC51300DF4700 /* LBXPermissions.swift */; };
 		13784B9F2ADCDC1500DF4700 /* QQScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13784B9E2ADCDC1500DF4700 /* QQScanViewController.swift */; };
-		13BC505C2B0323CF00D9194D /* nsyy1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13BC505A2B0323CF00D9194D /* nsyy1.jpg */; };
-		13BC505D2B0323CF00D9194D /* nsyy0.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BC505B2B0323CF00D9194D /* nsyy0.png */; };
 		13BC50612B03585C00D9194D /* DynamicLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC50602B03585C00D9194D /* DynamicLoadingViewController.swift */; };
 		13CCB8412AEA69BD00E6E11E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CCB8402AEA69BD00E6E11E /* UserInfo.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +62,8 @@
 /* Begin PBXFileReference section */
 		1323D32C2AD550A900C8F03C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		132C256D2AC15BBF00A1A35D /* NsyyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyNotification.swift; sourceTree = "<group>"; };
+		133096492B0AF17A00731CAF /* nsyy0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsyy0.png; sourceTree = "<group>"; };
+		1330964A2B0AF17A00731CAF /* nsyy1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nsyy1.jpg; sourceTree = "<group>"; };
 		1332BCD32AD1636F0097C92B /* NsyyBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NsyyBluetooth.swift; sourceTree = "<group>"; };
 		1332BCD52AD25E260097C92B /* BluetoothReturnData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReturnData.swift; sourceTree = "<group>"; };
 		1332BCD92AD2AF410097C92B /* BGTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGTask.swift; sourceTree = "<group>"; };
@@ -92,8 +94,6 @@
 		13784B9A2ADCC47800DF4700 /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
 		13784B9C2ADCC51300DF4700 /* LBXPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
 		13784B9E2ADCDC1500DF4700 /* QQScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QQScanViewController.swift; sourceTree = "<group>"; };
-		13BC505A2B0323CF00D9194D /* nsyy1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nsyy1.jpg; path = ../../../../.Trash/img/nsyy1.jpg; sourceTree = "<group>"; };
-		13BC505B2B0323CF00D9194D /* nsyy0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nsyy0.png; path = ../../../../.Trash/img/nsyy0.png; sourceTree = "<group>"; };
 		13BC50602B03585C00D9194D /* DynamicLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLoadingViewController.swift; sourceTree = "<group>"; };
 		13CCB8402AEA69BD00E6E11E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +133,15 @@
 			path = notification;
 			sourceTree = "<group>";
 		};
+		133096462B0AF02800731CAF /* img */ = {
+			isa = PBXGroup;
+			children = (
+				133096492B0AF17A00731CAF /* nsyy0.png */,
+				1330964A2B0AF17A00731CAF /* nsyy1.jpg */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 		1337D8842ABD945000A8F46D = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +166,7 @@
 		1337D88F2ABD945000A8F46D /* NsyyIOS */ = {
 			isa = PBXGroup;
 			children = (
-				13BC505B2B0323CF00D9194D /* nsyy0.png */,
-				13BC505A2B0323CF00D9194D /* nsyy1.jpg */,
+				133096462B0AF02800731CAF /* img */,
 				137230482AE762E50048F4FC /* config */,
 				13784B702ADBBA8900DF4700 /* code_scan */,
 				134828BF2AC50E920057C11D /* location */,
@@ -356,12 +364,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1330964C2B0AF17A00731CAF /* nsyy1.jpg in Resources */,
 				1323D32D2AD550A900C8F03C /* Settings.bundle in Resources */,
 				1337D89D2ABD945100A8F46D /* LaunchScreen.storyboard in Resources */,
-				13BC505D2B0323CF00D9194D /* nsyy0.png in Resources */,
-				13BC505C2B0323CF00D9194D /* nsyy1.jpg in Resources */,
 				1337D89A2ABD945100A8F46D /* Assets.xcassets in Resources */,
 				1337D8982ABD945000A8F46D /* Main.storyboard in Resources */,
+				1330964B2B0AF17A00731CAF /* nsyy0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

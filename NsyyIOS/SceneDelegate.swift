@@ -20,9 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let response = connectionOptions.notificationResponse {
            //get your launch info from here
-            if response.notification.request.content.userInfo[UIApplication.LaunchOptionsKey.location] != nil {
-                NsyyNotification().createNotification(title: "Test", context: "南石医院 app 自动启动")
-            }
+            print("\(#function) 南石医院自启动！")
         }
         
     }

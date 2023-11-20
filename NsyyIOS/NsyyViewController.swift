@@ -23,6 +23,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
     
     var loadingView: DynamicLoadingViewController!
     
+    var notification: NsyyNotification = NsyyNotification()
+    var bluetooth: NsyyBluetooth = NsyyBluetooth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,16 +69,28 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
         
         // 创建一个加载遮罩
         loadingView = DynamicLoadingViewController(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        //webView.addSubview(loadingView)
         loadingView.showInCenter()
         
         
         print("\(#function) 即将加载 \(urlString)")
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
-        webView.load(request)
         
-        NsyyBluetooth.setWebView(webView: webView)
+        // Check if the user has agreed to the privacy terms
+        if !UserDefaults.standard.bool(forKey: "FirstRun") {
+            // 首次进入app， 这里延时加载 oa，加载 oa 之前需要先获取网络权限。
+            // 申请location 权限时，会同时申请网络权限，给用户一些时间同意网络权限之后，在加载 oa
+            let time = DispatchTime.now() + DispatchTimeInterval.seconds(5)
+            DispatchQueue.main.asyncAfter(deadline: time){ [self] in
+                self.webView.load(request)
+                NsyyBluetooth.setWebView(webView: webView)
+            }
+            
+            UserDefaults.standard.setValue(true, forKey: "FirstRun")
+        } else {
+            self.webView.load(request)
+            NsyyBluetooth.setWebView(webView: webView)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -163,7 +177,10 @@ extension NsyyViewController: WKNavigationDelegate {
         
         if webView.isLoading == false {
                 loadingView.removeFromSuperview()
-            }
+        }
+        
+        bluetooth.setUpBluetooth()
+        notification.requestPermission()
     }
     
     // 页面加载失败时调用
