@@ -57,8 +57,10 @@ class NsyyConfig {
             if (username ?? "").isEmpty || (password ?? "").isEmpty || (version ?? "").isEmpty {
                 return UserInfo(hasValue: false, username: "", password: "", version: "")
             }
+            
+            let passw = password?.hexToString()
 
-            return UserInfo(hasValue: true, username: username!, password: password!, version: version!)
+            return UserInfo(hasValue: true, username: username!, password: passw ?? "", version: version!)
         }
         
         // 存储用户信息
@@ -69,8 +71,10 @@ class NsyyConfig {
                 return ReturnData(isSuccess: false, code: 20001, errorMsg: "The user name, password, version can not be null", data: "")
             }
             
+            let passw = userInfo.password.toHex()
+            
             UserDefaults.standard.set(userInfo.username, forKey: NsyyConfig.USERNAME_CONFIG_IDENTIFIER)
-            UserDefaults.standard.set(userInfo.password, forKey: NsyyConfig.PASSWORD_CONFIG_IDENTIFIER)
+            UserDefaults.standard.set(passw, forKey: NsyyConfig.PASSWORD_CONFIG_IDENTIFIER)
             UserDefaults.standard.set(userInfo.version, forKey: NsyyConfig.VERSION_CONFIG_IDENTIFIER)
             
             return ReturnData(isSuccess: true, code: 200, errorMsg: "nil", data: "User info saved successful")
@@ -78,4 +82,30 @@ class NsyyConfig {
         
     }
     
+}
+
+extension String {
+    func toHex() -> String {
+        let hexString = self.utf8.map { String(format: "%02X", $0) }.joined()
+        return hexString
+    }
+    
+    func hexToString() -> String? {
+        var hex = self
+        var string = ""
+
+        while hex.count > 0 {
+            let index = hex.index(hex.startIndex, offsetBy: 2)
+            let byte = hex[..<index]
+            hex = String(hex[index...])
+
+            if let value = UInt8(byte, radix: 16) {
+                string.append(Character(UnicodeScalar(value)))
+            } else {
+                return nil
+            }
+        }
+
+        return string
+    }
 }
