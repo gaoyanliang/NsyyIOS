@@ -603,13 +603,13 @@
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "请点击“允许”以允许访问";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙用于连接电子秤和扫码枪";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙用于连接电子秤和扫码枪";
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允许访问你的相机？";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "应用需要获取位置信息";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "应用需要获取位置信息";
-				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要获取位置信息";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "应用需要获取位置权限用于定位打卡";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "应用需要获取位置权限用于定位打卡";
+				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置权限用于定位打卡";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要获取位置权限用于定位打卡";
 				INFOPLIST_KEY_NSMotionUsageDescription = "请点击“允许”以允许访问";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请允许访问您的相册";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "请点击“允许”以允许访问";
@@ -625,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.Nsyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -646,13 +646,13 @@
 				INFOPLIST_FILE = NsyyIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "南石医院";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "请点击“允许”以允许访问";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "应用需要使用蓝牙用于连接电子秤和扫码枪";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "应用需要使用蓝牙用于连接电子秤和扫码枪";
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允许访问你的相机？";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "应用需要获取位置信息";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "应用需要获取位置信息";
-				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要获取位置信息";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "应用需要获取位置权限用于定位打卡";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "应用需要获取位置权限用于定位打卡";
+				INFOPLIST_KEY_NSLocationUsageDescription = "应用需要获取位置权限用于定位打卡";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要获取位置权限用于定位打卡";
 				INFOPLIST_KEY_NSMotionUsageDescription = "请点击“允许”以允许访问";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请允许访问您的相册";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "请点击“允许”以允许访问";
@@ -668,7 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nsyy.Nsyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
