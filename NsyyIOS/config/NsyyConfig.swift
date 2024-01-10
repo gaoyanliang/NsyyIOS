@@ -24,6 +24,9 @@ class NsyyConfig {
     // 南石医院 - 医废 测试
     static let TEST_NSYY_YF_URL: String = "http://120.194.96.67:6060/index1.html?type=013#/"
     
+    // 医体融合
+    static let NSYY_SPORT_MNG_URL: String = "http://oa.nsyy.com.cn:6060/index99.html"
+    
     
     // settings bundle 配置标识符
     // 蓝牙秤 mac 地址

@@ -67,11 +67,13 @@
 			<array>
 				<string>南石医院综合管理平台</string>
 				<string>南石医院医废管理</string>
+				<string>医体融合</string>
 			</array>
 			<key>Values</key>
 			<array>
 				<string>nsyy</string>
 				<string>nsyy-yf</string>
+				<string>nsyy-sport</string>
 			</array>
 		</dict>
 		<dict>

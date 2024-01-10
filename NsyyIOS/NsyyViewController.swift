@@ -62,6 +62,8 @@ class NsyyViewController: UIViewController, WKScriptMessageHandler, AVCaptureMet
                 urlString = NsyyConfig.NSYY_URL
             case "nsyy-yf":
                 urlString = NsyyConfig.NSYY_YF_URL
+            case "nsyy-sport":
+                urlString = NsyyConfig.NSYY_SPORT_MNG_URL
             default:
                 urlString = NsyyConfig.NSYY_URL
             }
